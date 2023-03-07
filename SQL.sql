@@ -4,118 +4,118 @@ USE SalonDeBellezaCarlitos
 GO
 
 CREATE TABLE tbUsuarios(
-	usu_Id					INT IDENTITY(1,1),
-	usu_Usuario				NVARCHAR(100) NOT NULL UNIQUE,
-	usu_Contrasenia			NVARCHAR(MAX) NOT NULL,
-	emp_Id					INT not null UNIQUE,
-	usu_UsuarioCreacion		INT not null,
-	usu_FechaCreacion		DATETIME not null,
-	usu_UsuarioModificacion INT ,
-	usu_FechaModificacion	DATETIME,
-	usu_Estado				BIT NOT NULL,
+	usur_Id					INT IDENTITY(1,1),
+	usur_Usuario				NVARCHAR(100) NOT NULL UNIQUE,
+	usur_Contrasenia			NVARCHAR(MAX) NOT NULL,
+	empl_Id					INT not null UNIQUE,
+	usur_UsuarioCreacion		INT not null,
+	usur_FechaCreacion		DATETIME not null,
+	usur_UsuarioModificacion INT ,
+	usur_FechaModificacion	DATETIME,
+	usur_Estado				BIT NOT NULL,
 
-	CONSTRAINT PK_dbo_tbUsuarios_usu_Id PRIMARY KEY(usu_Id)
+	CONSTRAINT PK_dbo_tbUsuarios_usur_Id PRIMARY KEY(usur_Id)
 );
 
 CREATE TABLE tbMetodoPago(
-    metpago_Id                      INT IDENTITY(1,1) not null,
-    metpago_Descripcion             NVARCHAR (100) NOT NULL,
-	metpago_FechaCreacion		    DATETIME not null,
-	metpago_UsuarioCreacion		    INT not null,
-	metpago_FechaModificacion	    DATETIME,
-	metpago_UsuarioModificacion     INT,
-	metpago_Estado				    BIT not null,
+    metp_Id                      INT IDENTITY(1,1) not null,
+    metp_Descripcion             NVARCHAR (100) NOT NULL,
+	metp_FechaCreacion		    DATETIME not null,
+	metp_UsuarioCreacion		    INT not null,
+	metp_FechaModificacion	    DATETIME,
+	metp_UsuarioModificacion     INT,
+	metp_Estado				    BIT not null,
 	
-	CONSTRAINT PK_dbo_tbMetodoPagos_metpago_Id PRIMARY KEY(metpago_Id),
-	CONSTRAINT FK_dbo_tbMetodoPago_dbo_tbUsuarios_metpago_UsuarioCreacion_usu_Id FOREIGN KEY(metpago_UsuarioCreacion) REFERENCES tbUsuarios(usu_Id),
-	CONSTRAINT FK_dbo_tbMetodoPago_dbo_tbUsuarios_metpago_UsuarioModificacion_usu_Id FOREIGN KEY(metpago_UsuarioModificacion) REFERENCES tbUsuarios(usu_Id)
+	CONSTRAINT PK_dbo_tbMetodoPagos_metp_Id PRIMARY KEY(metp_Id),
+	CONSTRAINT FK_dbo_tbMetodoPago_dbo_tbUsuarios_metp_UsuarioCreacion_usur_Id FOREIGN KEY(metp_UsuarioCreacion) REFERENCES tbUsuarios(usur_Id),
+	CONSTRAINT FK_dbo_tbMetodoPago_dbo_tbUsuarios_metp_UsuarioModificacion_usur_Id FOREIGN KEY(metp_UsuarioModificacion) REFERENCES tbUsuarios(usur_Id)
 
 );
 
 CREATE TABLE tbEstadosCiviles(
-	estciv_Id					INT IDENTITY(1,1),
-	estciv_Descripcion			NVARCHAR(200) not null UNIQUE,
-	estciv_FechaCreacion		DATETIME not null,
-	estciv_UsuarioCreacion		INT not null,
-	estciv_FechaModificacion	DATETIME,
-	estciv_UsuarioModificacion  INT,
-	estciv_Estado				BIT not null, 
-	CONSTRAINT PK_dbo_tbEstadosCiviles_estciv_Id PRIMARY KEY(estciv_Id),
-	CONSTRAINT FK_dbo_tbEstadosCiviles_dbo_tbUsuarios_estciv_UsuarioCreacion_usu_Id FOREIGN KEY(estciv_UsuarioCreacion) REFERENCES tbUsuarios(usu_Id),
-	CONSTRAINT FK_dbo_tbEstadosCiviles_dbo_tbUsuarios_estciv_UsuarioModificacion_usu_Id FOREIGN KEY(estciv_UsuarioModificacion) REFERENCES tbUsuarios(usu_Id)
+	estc_Id					INT IDENTITY(1,1),
+	estc_Descripcion			NVARCHAR(200) not null UNIQUE,
+	estc_FechaCreacion		DATETIME not null,
+	estc_UsuarioCreacion		INT not null,
+	estc_FechaModificacion	DATETIME,
+	estc_UsuarioModificacion  INT,
+	estc_Estado				BIT not null, 
+	CONSTRAINT PK_dbo_tbEstadosCiviles_estc_Id PRIMARY KEY(estc_Id),
+	CONSTRAINT FK_dbo_tbEstadosCiviles_dbo_tbUsuarios_estc_UsuarioCreacion_usur_Id FOREIGN KEY(estc_UsuarioCreacion) REFERENCES tbUsuarios(usur_Id),
+	CONSTRAINT FK_dbo_tbEstadosCiviles_dbo_tbUsuarios_estc_UsuarioModificacion_usur_Id FOREIGN KEY(estc_UsuarioModificacion) REFERENCES tbUsuarios(usur_Id)
 );
 
 
 CREATE TABLE tbDepartamentos(
-	dep_Id					INT IDENTITY(1,1),
-	dep_Descripcion			NVARCHAR(200) NOT NULL UNIQUE,
-    dep_Codigo              CHAR(2) NOT NULL UNIQUE,
-	dep_FechaCreacion		DATETIME not null,
-	dep_UsuarioCreacion		INT not null,
-	dep_FechaModificacion	DATETIME,
-	dep_UsuarioModificacion INT,
-	dep_Estado				BIT not null,
-	CONSTRAINT PK_dbo_tbDepartamentos_dep_Id PRIMARY KEY(dep_Id),
-	CONSTRAINT FK_dbo_tbDepartamentos_dbo_tbUsuarios_dep_UsuarioCreacion_usu_Id FOREIGN KEY(dep_UsuarioCreacion) REFERENCES tbUsuarios(usu_Id),
-	CONSTRAINT FK_dbo_tbDepartamentos_dbo_tbUsuarios_dep_UsuarioModificacion_usu_Id FOREIGN KEY(dep_UsuarioModificacion) REFERENCES tbUsuarios(usu_Id)
+	depa_Id					INT IDENTITY(1,1),
+	depa_Descripcion			NVARCHAR(200) NOT NULL UNIQUE,
+    depa_Codigo              CHAR(2) NOT NULL UNIQUE,
+	depa_FechaCreacion		DATETIME not null,
+	depa_UsuarioCreacion		INT not null,
+	depa_FechaModificacion	DATETIME,
+	depa_UsuarioModificacion INT,
+	depa_Estado				BIT not null,
+	CONSTRAINT PK_dbo_tbDepartamentos_depa_Id PRIMARY KEY(depa_Id),
+	CONSTRAINT FK_dbo_tbDepartamentos_dbo_tbUsuarios_depa_UsuarioCreacion_usur_Id FOREIGN KEY(depa_UsuarioCreacion) REFERENCES tbUsuarios(usur_Id),
+	CONSTRAINT FK_dbo_tbDepartamentos_dbo_tbUsuarios_depa_UsuarioModificacion_usur_Id FOREIGN KEY(depa_UsuarioModificacion) REFERENCES tbUsuarios(usur_Id)
 );
 
 
 
 CREATE TABLE tbMunicipios(
-	mun_Id					INT IDENTITY(1,1),
-	mun_Descripcion			NVARCHAR(200) NOT NULL,
-    mun_Codigo              CHAR(4) NOT NULL UNIQUE,
-	dep_Id					INT NOT NULL,
-	mun_FechaCreacion		DATETIME not null,
-	mun_UsuarioCreacion		INT not null,
-	mun_FechaModificacion	DATETIME,
-	mun_UsuarioModificacion INT,
-	mun_Estado				BIT not null,
-	CONSTRAINT PK_dbo_tbMunicipios_mun_Id PRIMARY KEY(mun_Id),
-	CONSTRAINT FK_tbMunicipios_tbDepartamentos_dep_Id FOREIGN KEY(dep_Id) REFERENCES tbDepartamentos(dep_Id),
-	CONSTRAINT FK_dbo_tbMunicipios_dbo_tbUsuarios_mun_UsuarioCreacion_usu_Id FOREIGN KEY(mun_UsuarioCreacion) REFERENCES tbUsuarios(usu_Id),
-	CONSTRAINT FK_dbo_tbMunicipios_dbo_tbUsuarios_mun_UsuarioModificacion_usu_Id FOREIGN KEY(mun_UsuarioModificacion) REFERENCES tbUsuarios(usu_Id)
+	muni_Id					INT IDENTITY(1,1),
+	muni_Descripcion			NVARCHAR(200) NOT NULL,
+    muni_Codigo              CHAR(4) NOT NULL UNIQUE,
+	depa_Id					INT NOT NULL,
+	muni_FechaCreacion		DATETIME not null,
+	muni_UsuarioCreacion		INT not null,
+	muni_FechaModificacion	DATETIME,
+	muni_UsuarioModificacion INT,
+	muni_Estado				BIT not null,
+	CONSTRAINT PK_dbo_tbMunicipios_muni_Id PRIMARY KEY(muni_Id),
+	CONSTRAINT FK_tbMunicipios_tbDepartamentos_depa_Id FOREIGN KEY(depa_Id) REFERENCES tbDepartamentos(depa_Id),
+	CONSTRAINT FK_dbo_tbMunicipios_dbo_tbUsuarios_muni_UsuarioCreacion_usur_Id FOREIGN KEY(muni_UsuarioCreacion) REFERENCES tbUsuarios(usur_Id),
+	CONSTRAINT FK_dbo_tbMunicipios_dbo_tbUsuarios_muni_UsuarioModificacion_usur_Id FOREIGN KEY(muni_UsuarioModificacion) REFERENCES tbUsuarios(usur_Id)
 );
 
 CREATE TABLE tbCargos(
-	car_Id					INT IDENTITY(1,1) NOT NULL,
-	car_Descripcion				NVARCHAR(200) NOT NULL UNIQUE,
-	car_FechaCreacion		DATETIME not null,
-	car_UsuarioCreacion		INT not null,
-	car_FechaModificacion	DATETIME,
-	car_UsuarioModificacion INT,
-	car_Estado				BIT not null,
-	CONSTRAINT PK_dbo_tbCargos_car_Id PRIMARY KEY(car_Id),
-	CONSTRAINT FK_dbo_tbCargos_dbo_tbUsuarios_car_UsuarioCreacion_usu_Id FOREIGN KEY(car_UsuarioCreacion) REFERENCES tbUsuarios(usu_Id),
-	CONSTRAINT FK_dbo_tbCargos_dbo_tbUsuarios_car_UsuarioModificacion_usu_Id FOREIGN KEY(car_UsuarioModificacion) REFERENCES tbUsuarios(usu_Id)
+	carg_Id					INT IDENTITY(1,1) NOT NULL,
+	carg_Descripcion				NVARCHAR(200) NOT NULL UNIQUE,
+	carg_FechaCreacion		DATETIME not null,
+	carg_UsuarioCreacion		INT not null,
+	carg_FechaModificacion	DATETIME,
+	carg_UsuarioModificacion INT,
+	carg_Estado				BIT not null,
+	CONSTRAINT PK_dbo_tbCargos_carg_Id PRIMARY KEY(carg_Id),
+	CONSTRAINT FK_dbo_tbCargos_dbo_tbUsuarios_carg_UsuarioCreacion_usur_Id FOREIGN KEY(carg_UsuarioCreacion) REFERENCES tbUsuarios(usur_Id),
+	CONSTRAINT FK_dbo_tbCargos_dbo_tbUsuarios_carg_UsuarioModificacion_usur_Id FOREIGN KEY(carg_UsuarioModificacion) REFERENCES tbUsuarios(usur_Id)
 );
 
 CREATE TABLE tbEmpleados(
-	emp_Id                              INT IDENTITY (1,1),
-	emp_Nombre							NVARCHAR(150) NOT NULL,
-	emp_Apellido						NVARCHAR(150) NOT NULL,
-	emp_Sexo							CHAR(1) NOT NULL,
-	mun_Id								INT NOT NULL,
-	emp_DireccionExacta					NVARCHAR(500) NOT NULL,
-	estciv_Id							INT NOT NULL,
-	emp_Telefono						NVARCHAR(20) NOT NULL,
-	emp_CorreoElectronico				NVARCHAR(100) NOT NULL,
-	emp_FechaNacimiento					Date NOT NULL,
-	emp_FechaContratacion				Date NOT NULL,
-	car_Id								INT NOT NULL,
-	emp_FechaCreacion					DATETIME not null,
-	emp_UsuarioCreacion					INT not null,
-	emp_FechaModificacion				DATETIME,
-	emp_UsuarioModificacion				INT,
-	emp_Estado							BIT not null,
+	empl_Id                              INT IDENTITY (1,1),
+	empl_Nombre							NVARCHAR(150) NOT NULL,
+	empl_Apellido						NVARCHAR(150) NOT NULL,
+	empl_Sexo							CHAR(1) NOT NULL,
+	muni_Id								INT NOT NULL,
+	empl_DireccionExacta					NVARCHAR(500) NOT NULL,
+	estc_Id							INT NOT NULL,
+	empl_Telefono						NVARCHAR(20) NOT NULL,
+	empl_CorreoElectronico				NVARCHAR(100) NOT NULL,
+	empl_FechaNacimiento					Date NOT NULL,
+	empl_FechaContratacion				Date NOT NULL,
+	carg_Id								INT NOT NULL,
+	empl_FechaCreacion					DATETIME not null,
+	empl_UsuarioCreacion					INT not null,
+	empl_FechaModificacion				DATETIME,
+	empl_UsuarioModificacion				INT,
+	empl_Estado							BIT not null,
 
-CONSTRAINT PK_dbo_tbEmpleados_emp_Id PRIMARY KEY(emp_Id),
-CONSTRAINT FK_dbo_tbEmpleados_dbo_tbMunicipios_mun_Id FOREIGN KEY(mun_Id) REFERENCES tbMunicipios(mun_Id),
-CONSTRAINT FK_dbo_tbEmpleados_dbo_tbEstadosCiviles_estciv_Id FOREIGN KEY(estciv_Id) REFERENCES tbEstadosCiviles(estciv_Id),
-CONSTRAINT FK_dbo_tbEmpleados_dbo_tbCargos_car_Id FOREIGN KEY(car_Id) REFERENCES tbCargos(car_Id),
-CONSTRAINT FK_dbo_tbEmpleados_dbo_tbUsuarios_emp_UsuarioCreacion_usu_Id FOREIGN KEY(emp_UsuarioCreacion) REFERENCES tbUsuarios(usu_Id),
-CONSTRAINT FK_dbo_tbEmpleados_dbo_tbUsuarios_emp_UsuarioModificacion_usu_Id FOREIGN KEY(emp_UsuarioModificacion) REFERENCES tbUsuarios(usu_Id)
+CONSTRAINT PK_dbo_tbEmpleados_empl_Id PRIMARY KEY(empl_Id),
+CONSTRAINT FK_dbo_tbEmpleados_dbo_tbMunicipios_muni_Id FOREIGN KEY(muni_Id) REFERENCES tbMunicipios(muni_Id),
+CONSTRAINT FK_dbo_tbEmpleados_dbo_tbEstadosCiviles_estc_Id FOREIGN KEY(estc_Id) REFERENCES tbEstadosCiviles(estc_Id),
+CONSTRAINT FK_dbo_tbEmpleados_dbo_tbCargos_carg_Id FOREIGN KEY(carg_Id) REFERENCES tbCargos(carg_Id),
+CONSTRAINT FK_dbo_tbEmpleados_dbo_tbUsuarios_empl_UsuarioCreacion_usur_Id FOREIGN KEY(empl_UsuarioCreacion) REFERENCES tbUsuarios(usur_Id),
+CONSTRAINT FK_dbo_tbEmpleados_dbo_tbUsuarios_empl_UsuarioModificacion_usur_Id FOREIGN KEY(empl_UsuarioModificacion) REFERENCES tbUsuarios(usur_Id)
 
 );
 
@@ -125,7 +125,7 @@ CREATE TABLE tbProveedores(
     prov_Id                              INT IDENTITY(1,1),
     prov_NombreEmpresa                   NVARCHAR (150) NOT NULL UNIQUE,
     prov_NombreContacto                  NVARCHAR (150) NOT NULL,
-    mun_Id                               INT NOT NULL,
+    muni_Id                               INT NOT NULL,
     prov_DireccionExacta                 NVARCHAR (500) NOT NULL,
     prov_Telefono                        NVARCHAR (20) NOT NULL,
     prov_FechaCreacion		             DATETIME NOT null,
@@ -134,107 +134,107 @@ CREATE TABLE tbProveedores(
     prov_UsuarioModificacion             INT,
     prov_Estado                          BIT NOT null,
     CONSTRAINT PK_dbo_tbProveedores_prov_Id PRIMARY KEY(prov_Id),
-    CONSTRAINT FK_dbo_tbProveedores_tbMunicipio_mun_id FOREIGN key(mun_id) REFERENCES tbMunicipios(mun_id)
+    CONSTRAINT FK_dbo_tbProveedores_tbMunicipio_muni_id FOREIGN key(muni_id) REFERENCES tbMunicipios(muni_id)
 );
 
 
 CREATE TABLE tbCategorias(
-    cat_Id                              INT IDENTITY(1,1),
-    cat_Descripcion                     NVARCHAR (150) NOT NULL UNIQUE,
-    cat_FechaCreacion		            DATETIME not null,
-    cat_UsuarioCreacion		            INT not null,
-    cat_FechaModificacion	            DATETIME,
-    cat_UsuarioModificacion             INT,
-    cat_Estado				            BIT not null,
-CONSTRAINT PK_dbo_tbCategoria_cat_Id PRIMARY KEY(cat_Id),
-CONSTRAINT FK_dbo_tbCategoria_dbo_tbUsuarios_cat_UsuarioCreacion_usu_Id FOREIGN KEY(cat_UsuarioCreacion) REFERENCES tbUsuarios(usu_Id),
-CONSTRAINT FK_dbo_tbCategoria_dbo_tbUsuarios_cat_UsuarioModificacion_usu_Id FOREIGN KEY(cat_UsuarioModificacion) REFERENCES tbUsuarios(usu_Id)
+    cate_Id                              INT IDENTITY(1,1),
+    cate_Descripcion                     NVARCHAR (150) NOT NULL UNIQUE,
+    cate_FechaCreacion		            DATETIME not null,
+    cate_UsuarioCreacion		            INT not null,
+    cate_FechaModificacion	            DATETIME,
+    cate_UsuarioModificacion             INT,
+    cate_Estado				            BIT not null,
+CONSTRAINT PK_dbo_tbCategoria_cate_Id PRIMARY KEY(cate_Id),
+CONSTRAINT FK_dbo_tbCategoria_dbo_tbUsuarios_cate_UsuarioCreacion_usur_Id FOREIGN KEY(cate_UsuarioCreacion) REFERENCES tbUsuarios(usur_Id),
+CONSTRAINT FK_dbo_tbCategoria_dbo_tbUsuarios_cate_UsuarioModificacion_usur_Id FOREIGN KEY(cate_UsuarioModificacion) REFERENCES tbUsuarios(usur_Id)
 );
 
 
 CREATE TABLE tbProductos(
-    pro_Id			                    INT IDENTITY(1,1),
-    pro_Nombre		                    NVARCHAR (200) NOT NULL,
-    pro_Precio		                    DECIMAL (18,2) NOT NULL,
-    cat_Id			                    INT not null,
-    pro_Stock		                    INT not null,
+    prod_Id			                    INT IDENTITY(1,1),
+    prod_Nombre		                    NVARCHAR (200) NOT NULL,
+    prod_Precio		                    DECIMAL (18,2) NOT NULL,
+    cate_Id			                    INT not null,
+    prod_Stock		                    INT not null,
     prov_id								INT,
-    pro_FechaCreacion					DATETIME not null,
-    pro_UsuarioCreacion					INT not null,
-    pro_FechaModificacion				DATETIME,
-    pro_UsuarioModificacion				INT,
-    pro_Estado							BIT not null,
+    prod_FechaCreacion					DATETIME not null,
+    prod_UsuarioCreacion					INT not null,
+    prod_FechaModificacion				DATETIME,
+    prod_UsuarioModificacion				INT,
+    prod_Estado							BIT not null,
 
-CONSTRAINT PK_dbo_tbProductos_pro_Id PRIMARY KEY(pro_Id),
-CONSTRAINT FK_dbo_tbProductos_tbCategoria_cat_Id FOREIGN KEY (cat_Id) REFERENCES tbCategorias(cat_Id),
+CONSTRAINT PK_dbo_tbProductos_prod_Id PRIMARY KEY(prod_Id),
+CONSTRAINT FK_dbo_tbProductos_tbCategoria_cate_Id FOREIGN KEY (cate_Id) REFERENCES tbCategorias(cate_Id),
 CONSTRAINT FK_dbo_tbProductos_tbProveedores_prov_Id FOREIGN KEY (prov_id) REFERENCES tbProveedores (prov_id),
-CONSTRAINT FK_dbo_tbProductos_dbo_tbUsuarios_pro_UsuarioCreacion_usu_Id FOREIGN KEY(pro_UsuarioCreacion) REFERENCES tbUsuarios(usu_Id),
-CONSTRAINT FK_dbo_tbProductos_dbo_tbUsuarios_pro_UsuarioModificacion_usu_Id FOREIGN KEY(pro_UsuarioModificacion) REFERENCES tbUsuarios(usu_Id)
+CONSTRAINT FK_dbo_tbProductos_dbo_tbUsuarios_prod_UsuarioCreacion_usur_Id FOREIGN KEY(prod_UsuarioCreacion) REFERENCES tbUsuarios(usur_Id),
+CONSTRAINT FK_dbo_tbProductos_dbo_tbUsuarios_prod_UsuarioModificacion_usur_Id FOREIGN KEY(prod_UsuarioModificacion) REFERENCES tbUsuarios(usur_Id)
 
 );
 
 
 CREATE TABLE tbClientes(
-cli_Id                              INT IDENTITY (1,1),
-cli_Nombre							NVARCHAR(150) NOT NULL,
-cli_Apellido						NVARCHAR(150) NOT NULL,
-cli_Telefono						NVARCHAR(20) NOT NULL,
-cli_CorreoElectronico				NVARCHAR(100),
-cli_FechaCreacion					DATETIME not null,
-cli_UsuarioCreacion					INT not null,
-cli_FechaModificacion				DATETIME,
-cli_UsuarioModificacion				INT,    
-cli_Estado							BIT not null,
+clie_Id                              INT IDENTITY (1,1),
+clie_Nombre							NVARCHAR(150) NOT NULL,
+clie_Apellido						NVARCHAR(150) NOT NULL,
+clie_Telefono						NVARCHAR(20) NOT NULL,
+clie_CorreoElectronico				NVARCHAR(100),
+clie_FechaCreacion					DATETIME not null,
+clie_UsuarioCreacion					INT not null,
+clie_FechaModificacion				DATETIME,
+clie_UsuarioModificacion				INT,    
+clie_Estado							BIT not null,
 
-CONSTRAINT PK_dbo_tbClientes_cli_Id PRIMARY KEY(cli_id),
-CONSTRAINT FK_dbo_tbClientes_dbo_tbUsuarios_cli_UsuarioCreacion_usu_Id FOREIGN KEY(cli_UsuarioCreacion) REFERENCES tbUsuarios(usu_Id),
-CONSTRAINT FK_dbo_tbClientes_dbo_tbUsuarios_cli_UsuarioModificacion_usu_Id FOREIGN KEY(cli_UsuarioModificacion) REFERENCES tbUsuarios(usu_Id)
+CONSTRAINT PK_dbo_tbClientes_clie_Id PRIMARY KEY(clie_id),
+CONSTRAINT FK_dbo_tbClientes_dbo_tbUsuarios_clie_UsuarioCreacion_usur_Id FOREIGN KEY(clie_UsuarioCreacion) REFERENCES tbUsuarios(usur_Id),
+CONSTRAINT FK_dbo_tbClientes_dbo_tbUsuarios_clie_UsuarioModificacion_usur_Id FOREIGN KEY(clie_UsuarioModificacion) REFERENCES tbUsuarios(usur_Id)
 
 );
 
 CREATE TABLE tbServicios(
-    ser_Id                          INT IDENTITY(1,1),
-    ser_Nombre                      NVARCHAR(150) NOT NULL,
-    ser_Descripcion                 NVARCHAR(500) ,
-    ser_Precio                      DECIMAL(18,2) NOT NULL,
-    ser_FechaCreacion				DATETIME not null,
-    ser_UsuarioCreacion				INT not null,
-    ser_FechaModificacion			DATETIME,
-    ser_UsuarioModificacion		    INT,    
-    ser_Estado					    BIT not null,
+    serv_Id                          INT IDENTITY(1,1),
+    serv_Nombre                      NVARCHAR(150) NOT NULL,
+    serv_Descripcion                 NVARCHAR(500) ,
+    serv_Precio                      DECIMAL(18,2) NOT NULL,
+    serv_FechaCreacion				DATETIME not null,
+    serv_UsuarioCreacion				INT not null,
+    serv_FechaModificacion			DATETIME,
+    serv_UsuarioModificacion		    INT,    
+    serv_Estado					    BIT not null,
 
-    CONSTRAINT PK_dbo_tbServicio_ser_Id PRIMARY KEY(ser_Id),
-    CONSTRAINT FK_dbo_tbServicios_dbo_tbUsuarios_ser_UsuarioCreacion_usu_Id FOREIGN KEY(ser_UsuarioCreacion) REFERENCES tbUsuarios(usu_Id),
-    CONSTRAINT FK_dbo_tbServicios_dbo_tbUsuarios_ser_UsuarioModificacion_usu_Id FOREIGN KEY(ser_UsuarioModificacion) REFERENCES tbUsuarios(usu_Id)
+    CONSTRAINT PK_dbo_tbServicio_serv_Id PRIMARY KEY(serv_Id),
+    CONSTRAINT FK_dbo_tbServicios_dbo_tbUsuarios_serv_UsuarioCreacion_usur_Id FOREIGN KEY(serv_UsuarioCreacion) REFERENCES tbUsuarios(usur_Id),
+    CONSTRAINT FK_dbo_tbServicios_dbo_tbUsuarios_serv_UsuarioModificacion_usur_Id FOREIGN KEY(serv_UsuarioModificacion) REFERENCES tbUsuarios(usur_Id)
     
 );
 
 CREATE TABLE tbFacturas(
-    fac_Id                              INT IDENTITY(1,1),
-    cli_Id                              INT not null,
-    fac_Pedidos							DATETIME NOT NULL,
-    emp_Id								INT not null,
-    metpago_Id							INT not null,
-    fac_FechaCreacion					DATETIME not null,
-    fac_UsuarioCreacion					INT not null,
-    fac_FechaModificacion				DATETIME,
-    fac_UsuarioModificacion				INT,
-    fac_Estado							BIT not null,
+    fact_Id                              INT IDENTITY(1,1),
+    clie_Id                              INT not null,
+    fact_Pedidos							DATETIME NOT NULL,
+    empl_Id								INT not null,
+    metp_Id							INT not null,
+    fact_FechaCreacion					DATETIME not null,
+    fact_UsuarioCreacion					INT not null,
+    fact_FechaModificacion				DATETIME,
+    fact_UsuarioModificacion				INT,
+    fact_Estado							BIT not null,
 
-    CONSTRAINT PK_dbo_tbFacturas_fac_Id PRIMARY KEY(fac_Id),
-    CONSTRAINT FK_dbo_tbFacturas_tbClientes_cli_id FOREIGN KEY(cli_Id) REFERENCES tbClientes(cli_Id),  
-    CONSTRAINT FK_dbo_tbFacturas_tbMetodoPago_metpago_id FOREIGN KEY(metpago_Id) REFERENCES tbMetodoPago(metpago_Id),
-    CONSTRAINT FK_dbo_tbFacturas_dbo_tbEmpleados_emp_Id FOREIGN KEY(emp_Id) REFERENCES tbEmpleados(emp_Id),
-    CONSTRAINT FK_dbo_tbFacturas_dbo_tbUsuarios_ped_UsuarioCreacion_usu_Id FOREIGN KEY(fac_UsuarioCreacion) REFERENCES tbUsuarios(usu_Id),
-    CONSTRAINT FK_dbo_tbFacturas_dbo_tbUsuarios_ped_UsuarioModificacion_usu_Id FOREIGN KEY(fac_UsuarioModificacion) REFERENCES tbUsuarios(usu_Id)
+    CONSTRAINT PK_dbo_tbFacturas_fact_Id PRIMARY KEY(fact_Id),
+    CONSTRAINT FK_dbo_tbFacturas_tbClientes_clie_id FOREIGN KEY(clie_Id) REFERENCES tbClientes(clie_Id),  
+    CONSTRAINT FK_dbo_tbFacturas_tbMetodoPago_metp_id FOREIGN KEY(metp_Id) REFERENCES tbMetodoPago(metp_Id),
+    CONSTRAINT FK_dbo_tbFacturas_dbo_tbEmpleados_empl_Id FOREIGN KEY(empl_Id) REFERENCES tbEmpleados(empl_Id),
+    CONSTRAINT FK_dbo_tbFacturas_dbo_tbUsuarios_ped_UsuarioCreacion_usur_Id FOREIGN KEY(fact_UsuarioCreacion) REFERENCES tbUsuarios(usur_Id),
+    CONSTRAINT FK_dbo_tbFacturas_dbo_tbUsuarios_ped_UsuarioModificacion_usur_Id FOREIGN KEY(fact_UsuarioModificacion) REFERENCES tbUsuarios(usur_Id)
 
 );
 
 
 CREATE TABLE tbFacturasDetalles(
 fade_Id                             INT IDENTITY(1,1),
-fac_Id                              INT not null,
-pro_Id                              INT not null,
+fact_Id                              INT not null,
+prod_Id                              INT not null,
 fade_Cantidad						INT NOT NULL,
 fade_Precio							DECIMAL (18,2) NOT NULL,
 fade_FechaCreacion					DATETIME not null,
@@ -243,66 +243,66 @@ fade_FechaModificacion				DATETIME,
 fade_UsuarioModificacion			INT,
 fade_Estado							BIT not null,
 CONSTRAINT PK_dbo_tbFacturasDetalles_fade_Id PRIMARY KEY(fade_Id),
-CONSTRAINT FK_dbo_tbFacturasDetalles_tbFacturas_fac_id FOREIGN KEY(fac_Id) REFERENCES tbFacturas(fac_Id),
-CONSTRAINT FK_dbo_tbFacturasDetalles_tbProductos_pro_id FOREIGN KEY(pro_Id) REFERENCES tbProductos(pro_Id),
-CONSTRAINT FK_dbo_tbFacturasDetalles_dbo_tbUsuarios_fade_UsuarioCreacion_usu_Id FOREIGN KEY(fade_UsuarioCreacion) REFERENCES tbUsuarios(usu_Id),
-CONSTRAINT FK_dbo_tbFacturasDetalles_dbo_tbUsuarios_fade_UsuarioModificacion_usu_Id FOREIGN KEY(fade_UsuarioModificacion) REFERENCES tbUsuarios(usu_Id)
+CONSTRAINT FK_dbo_tbFacturasDetalles_tbFacturas_fact_id FOREIGN KEY(fact_Id) REFERENCES tbFacturas(fact_Id),
+CONSTRAINT FK_dbo_tbFacturasDetalles_tbProductos_prod_id FOREIGN KEY(prod_Id) REFERENCES tbProductos(prod_Id),
+CONSTRAINT FK_dbo_tbFacturasDetalles_dbo_tbUsuarios_fade_UsuarioCreacion_usur_Id FOREIGN KEY(fade_UsuarioCreacion) REFERENCES tbUsuarios(usur_Id),
+CONSTRAINT FK_dbo_tbFacturasDetalles_dbo_tbUsuarios_fade_UsuarioModificacion_usur_Id FOREIGN KEY(fade_UsuarioModificacion) REFERENCES tbUsuarios(usur_Id)
 
 );
 
 CREATE TABLE tbSucursales(
-    suc_Id                              INT IDENTITY(1,1),
-    suc_Descripcion                     NVARCHAR(200) NOT NULL,
-    mun_Id                              INT,
-    suc_FechaCreacion					DATETIME not null,
-    suc_UsuarioCreacion				    INT not null,
-    suc_FechaModificacion				DATETIME,
-    suc_UsuarioModificacion			    INT,
-    suc_Estado							BIT not null,
-    CONSTRAINT PK_dbo_tbSucursales_suc_Id PRIMARY KEY(suc_Id),
-    CONSTRAINT FK_dbo_tbSucursales_dbo_tbMunicipios_mun_Id FOREIGN KEY(mun_Id) REFERENCES tbMunicipios(mun_Id),
+    sucu_Id                              INT IDENTITY(1,1),
+    sucu_Descripcion                     NVARCHAR(200) NOT NULL,
+    muni_Id                              INT,
+    sucu_FechaCreacion					DATETIME not null,
+    sucu_UsuarioCreacion				    INT not null,
+    sucu_FechaModificacion				DATETIME,
+    sucu_UsuarioModificacion			    INT,
+    sucu_Estado							BIT not null,
+    CONSTRAINT PK_dbo_tbSucursales_sucu_Id PRIMARY KEY(sucu_Id),
+    CONSTRAINT FK_dbo_tbSucursales_dbo_tbMunicipios_muni_Id FOREIGN KEY(muni_Id) REFERENCES tbMunicipios(muni_Id),
 
-    CONSTRAINT FK_dbo_tbSucursales_dbo_tbUsuarios_suc_UsuarioCreacion_usu_Id FOREIGN KEY(suc_UsuarioCreacion) REFERENCES tbUsuarios(usu_Id),
-    CONSTRAINT FK_dbo_tbSucursales_dbo_tbUsuarios_suc_UsuarioModificacion_usu_Id FOREIGN KEY(suc_UsuarioModificacion) REFERENCES tbUsuarios(usu_Id)
+    CONSTRAINT FK_dbo_tbSucursales_dbo_tbUsuarios_sucu_UsuarioCreacion_usur_Id FOREIGN KEY(sucu_UsuarioCreacion) REFERENCES tbUsuarios(usur_Id),
+    CONSTRAINT FK_dbo_tbSucursales_dbo_tbUsuarios_sucu_UsuarioModificacion_usur_Id FOREIGN KEY(sucu_UsuarioModificacion) REFERENCES tbUsuarios(usur_Id)
 
 );
 
 CREATE TABLE tbResevaciones(
-res_Id                              INT IDENTITY(1,1),
-cli_Id                              INT NOT NULL,
-suc_Id                              INT NOT NULL,
-res_DiaReservado                    DATE NOT NULL,
-res_HoraInicio                      TIME NOT NULL,
-res_HoraFin                         TIME NOT NULL,
-res_FechaCreacion					DATETIME not null,
-res_UsuarioCreacion				    INT not null,
-res_FechaModificacion				DATETIME,
-res_UsuarioModificacion			    INT,
-res_Estado							BIT not null,
+rese_Id                              INT IDENTITY(1,1),
+clie_Id                              INT NOT NULL,
+sucu_Id                              INT NOT NULL,
+rese_DiaReservado                    DATE NOT NULL,
+rese_HoraInicio                      TIME NOT NULL,
+rese_HoraFin                         TIME NOT NULL,
+rese_FechaCreacion					DATETIME not null,
+rese_UsuarioCreacion				    INT not null,
+rese_FechaModificacion				DATETIME,
+rese_UsuarioModificacion			    INT,
+rese_Estado							BIT not null,
 
-CONSTRAINT PK_dbo_tbResevaciones_res_Id PRIMARY KEY(res_Id),
-CONSTRAINT FK_dbo_tbResevaciones_tbClientes_cli_id FOREIGN KEY(cli_Id) REFERENCES tbClientes(cli_Id),
-CONSTRAINT FK_dbo_tbResevaciones_tbSucursales_suc_id FOREIGN KEY(suc_Id) REFERENCES tbSucursales(suc_Id),
-CONSTRAINT FK_dbo_tbResevaciones_dbo_tbUsuarios_res_UsuarioCreacion_usu_Id FOREIGN KEY(res_UsuarioCreacion) REFERENCES tbUsuarios(usu_Id),
-CONSTRAINT FK_dbo_tbResevaciones_dbo_tbUsuarios_res_UsuarioModificacion_usu_Id FOREIGN KEY(res_UsuarioModificacion) REFERENCES tbUsuarios(usu_Id)
+CONSTRAINT PK_dbo_tbResevaciones_rese_Id PRIMARY KEY(rese_Id),
+CONSTRAINT FK_dbo_tbResevaciones_tbClientes_clie_id FOREIGN KEY(clie_Id) REFERENCES tbClientes(clie_Id),
+CONSTRAINT FK_dbo_tbResevaciones_tbSucursales_sucu_id FOREIGN KEY(sucu_Id) REFERENCES tbSucursales(sucu_Id),
+CONSTRAINT FK_dbo_tbResevaciones_dbo_tbUsuarios_rese_UsuarioCreacion_usur_Id FOREIGN KEY(rese_UsuarioCreacion) REFERENCES tbUsuarios(usur_Id),
+CONSTRAINT FK_dbo_tbResevaciones_dbo_tbUsuarios_rese_UsuarioModificacion_usur_Id FOREIGN KEY(rese_UsuarioModificacion) REFERENCES tbUsuarios(usur_Id)
 );
 
 
 CREATE TABLE tbProductosXServicio(
-    serpro_Id                       INT IDENTITY(1,1),
-    ser_Id                          INT,
-    pro_Id                          INT,
-    serpro_FechaCreacion			DATETIME not null,
-    serpro_UsuarioCreacion		    INT not null,
-    serpro_FechaModificacion		DATETIME,
-    serpro_UsuarioModificacion      INT,
-    serpro_Estado				    BIT not null,
+    serprod_Id                       INT IDENTITY(1,1),
+    serv_Id                          INT,
+    prod_Id                          INT,
+    serprod_FechaCreacion			DATETIME not null,
+    serprod_UsuarioCreacion		    INT not null,
+    serprod_FechaModificacion		DATETIME,
+    serprod_UsuarioModificacion      INT,
+    serprod_Estado				    BIT not null,
 
-    CONSTRAINT PK_dbo_tbProductosXServicio_serpro_Id PRIMARY KEY(serpro_Id),
-    CONSTRAINT FK_dbo_tbProductosXServicio_dbo_tbServicios_ser_Id FOREIGN KEY (ser_Id) REFERENCES tbServicios(ser_Id),
-    CONSTRAINT FK_dbo_tbProductosXServicio_dbo_tbProductos_pro_Id FOREIGN KEY (pro_Id) REFERENCES tbProductos(pro_Id),
-    CONSTRAINT FK_dbo_tbProductosXServicio_dbo_tbUsuarios_serpro_UsuarioCreacion_usu_Id FOREIGN KEY(serpro_UsuarioCreacion) REFERENCES tbUsuarios(usu_Id),
-    CONSTRAINT FK_dbo_tbProductosXServicio_dbo_tbUsuarios_serpro_UsuarioModificacion_usu_Id FOREIGN KEY(serpro_UsuarioModificacion) REFERENCES tbUsuarios(usu_Id)
+    CONSTRAINT PK_dbo_tbProductosXServicio_serprod_Id PRIMARY KEY(serprod_Id),
+    CONSTRAINT FK_dbo_tbProductosXServicio_dbo_tbServicios_serv_Id FOREIGN KEY (serv_Id) REFERENCES tbServicios(serv_Id),
+    CONSTRAINT FK_dbo_tbProductosXServicio_dbo_tbProductos_prod_Id FOREIGN KEY (prod_Id) REFERENCES tbProductos(prod_Id),
+    CONSTRAINT FK_dbo_tbProductosXServicio_dbo_tbUsuarios_serprod_UsuarioCreacion_usur_Id FOREIGN KEY(serprod_UsuarioCreacion) REFERENCES tbUsuarios(usur_Id),
+    CONSTRAINT FK_dbo_tbProductosXServicio_dbo_tbUsuarios_serprod_UsuarioModificacion_usur_Id FOREIGN KEY(serprod_UsuarioModificacion) REFERENCES tbUsuarios(usur_Id)
 );
 
 ----INSERTS----
@@ -310,21 +310,21 @@ CREATE TABLE tbProductosXServicio(
 
 
 INSERT INTO [dbo].[tbUsuarios]
-           ([usu_Usuario]
-           ,[usu_Contrasenia]
-           ,[emp_Id]
-           ,[usu_UsuarioCreacion]
-           ,[usu_FechaCreacion]
-           ,[usu_UsuarioModificacion]
-           ,[usu_FechaModificacion]
-           ,[usu_Estado])
+           ([usur_Usuario]
+           ,[usur_Contrasenia]
+           ,[empl_Id]
+           ,[usur_UsuarioCreacion]
+           ,[usur_FechaCreacion]
+           ,[usur_UsuarioModificacion]
+           ,[usur_FechaModificacion]
+           ,[usur_Estado])
      VALUES
            ('admin',HASHBYTES('SHA2_512','admin'),1,1,GETDATE(),null,null,1)
 GO
 
 
 
-INSERT INTO [dbo].[tbDepartamentos](dep_Codigo,dep_Descripcion,dep_FechaCreacion,dep_UsuarioCreacion,dep_FechaModificacion,dep_UsuarioModificacion,dep_Estado)
+INSERT INTO [dbo].[tbDepartamentos](depa_Codigo,depa_Descripcion,depa_FechaCreacion,depa_UsuarioCreacion,depa_FechaModificacion,depa_UsuarioModificacion,depa_Estado)
 VALUES ('01', 'Atlantida', GETDATE(), 1,null,null,1),
 	   ('02', 'Colon', GETDATE(), 1,null,null,1),
 	   ('03', 'Comayagua', GETDATE(), 1,null,null,1),
@@ -348,7 +348,7 @@ VALUES ('01', 'Atlantida', GETDATE(), 1,null,null,1),
 
 
 	   
-INSERT INTO [dbo].[tbMunicipios](mun_Codigo, mun_Descripcion,dep_Id, [mun_UsuarioCreacion], [mun_FechaCreacion],[mun_Estado])
+INSERT INTO [dbo].[tbMunicipios](muni_Codigo, muni_Descripcion,depa_Id, [muni_UsuarioCreacion], [muni_FechaCreacion],[muni_Estado])
 VALUES('0101','La Ceiba ',1, 1, GETDATE(), 1),
       ('0102','El Porvenir','1', 1, GETDATE(), 1), 
 	  ('0103','Jutiapa','1', 1, GETDATE(), 1),
@@ -459,22 +459,22 @@ VALUES ( 'Casado(a)',  GETDATE(), 1, NULL, NULL, 1),
 
 
 INSERT INTO [dbo].[tbEmpleados]
-           ([emp_Nombre]
-           ,[emp_Apellido]
-           ,[emp_Sexo]
-           ,[mun_Id]
-           ,[emp_DireccionExacta]
-           ,[estciv_Id]
-           ,[emp_Telefono]
-           ,[emp_CorreoElectronico]
-           ,[emp_FechaNacimiento]
-           ,[emp_FechaContratacion]
-           ,[car_Id]
-           ,[emp_FechaCreacion]
-           ,[emp_UsuarioCreacion]
-           ,[emp_FechaModificacion]
-           ,[emp_UsuarioModificacion]
-           ,[emp_Estado])
+           ([empl_Nombre]
+           ,[empl_Apellido]
+           ,[empl_Sexo]
+           ,[muni_Id]
+           ,[empl_DireccionExacta]
+           ,[estc_Id]
+           ,[empl_Telefono]
+           ,[empl_CorreoElectronico]
+           ,[empl_FechaNacimiento]
+           ,[empl_FechaContratacion]
+           ,[carg_Id]
+           ,[empl_FechaCreacion]
+           ,[empl_UsuarioCreacion]
+           ,[empl_FechaModificacion]
+           ,[empl_UsuarioModificacion]
+           ,[empl_Estado])
      VALUES
            ('Daniel','Espinoza' ,'M','10' ,'Col. Municipal','1' ,'87756952' ,'daniele09099@gmail.com',GETDATE() ,GetDate() ,1 ,GetDate() ,1 ,null ,null,1),
            ('Selvin','Medina' ,'M','10' ,'Rivera','2' ,'98552231' ,'selvinmedi@gmail.com',GETDATE() ,GetDate() ,1 ,GetDate() ,1 ,null ,null,1),
@@ -493,17 +493,17 @@ GO
 
 
 ALTER TABLE [dbo].[tbUsuarios] 
-ADD CONSTRAINT FK_dbo_tbUsuarios_dbo_tbUsuarios_usu_UsuarioCreacion_usu_Id FOREIGN KEY([usu_UsuarioCreacion]) REFERENCES tbUsuarios(usu_Id);
+ADD CONSTRAINT FK_dbo_tbUsuarios_dbo_tbUsuarios_usur_UsuarioCreacion_usur_Id FOREIGN KEY([usur_UsuarioCreacion]) REFERENCES tbUsuarios(usur_Id);
 
 GO
 
 ALTER TABLE [dbo].[tbUsuarios] 
-ADD CONSTRAINT FK_dbo_tbUsuarios_dbo_tbUsuarios_usu_UsuarioModificacion_usu_Id FOREIGN KEY([usu_UsuarioModificacion]) REFERENCES tbUsuarios(usu_Id);
+ADD CONSTRAINT FK_dbo_tbUsuarios_dbo_tbUsuarios_usur_UsuarioModificacion_usur_Id FOREIGN KEY([usur_UsuarioModificacion]) REFERENCES tbUsuarios(usur_Id);
 
 GO
 
 ALTER TABLE [dbo].[tbUsuarios] 
-ADD CONSTRAINT FK_dbo_tbUsuarios_dbo_tbEmpleados_emp_Id FOREIGN KEY([emp_Id]) REFERENCES tbEmpleados([emp_Id]);
+ADD CONSTRAINT FK_dbo_tbUsuarios_dbo_tbEmpleados_empl_Id FOREIGN KEY([empl_Id]) REFERENCES tbEmpleados([empl_Id]);
 
 
 GO
@@ -511,12 +511,12 @@ GO
 
 
 INSERT INTO [dbo].[tbMetodoPago]
-           ([metpago_Descripcion]
-           ,[metpago_FechaCreacion]
-           ,[metpago_UsuarioCreacion]
-           ,[metpago_FechaModificacion]
-           ,[metpago_UsuarioModificacion]
-           ,[metpago_Estado])
+           ([metp_Descripcion]
+           ,[metp_FechaCreacion]
+           ,[metp_UsuarioCreacion]
+           ,[metp_FechaModificacion]
+           ,[metp_UsuarioModificacion]
+           ,[metp_Estado])
      VALUES
            ('Efectivo',GetDate(),1,null ,null,1),
            ('Tarjeta de Credito',GetDate(),1,null ,null,1),
@@ -530,27 +530,27 @@ GO
 
 GO
 CREATE OR ALTER PROCEDURE UDP_Login
-	@usu_Usuario Nvarchar(100),
-	@usu_Contrasenia Nvarchar(Max)
+	@usur_Usuario Nvarchar(100),
+	@usur_Contrasenia Nvarchar(Max)
 AS
 BEGIN
 
-Declare @Password Nvarchar(max) = (HASHBYTES('SHA2_512',@usu_Contrasenia))
+Declare @Password Nvarchar(max) = (HASHBYTES('SHA2_512',@usur_Contrasenia))
 
-SELECT [usu_Id]
-      ,[usu_Usuario]
-      ,[usu_Contrasenia]
-      ,T1.[emp_Id]
-	  ,t2.emp_Nombre + ' ' + t2.emp_Apellido as emp_Nombre 
-      ,[usu_UsuarioCreacion]
-      ,[usu_FechaCreacion]
-      ,[usu_UsuarioModificacion]
-      ,[usu_FechaModificacion]
-      ,[usu_Estado]
+SELECT [usur_Id]
+      ,[usur_Usuario]
+      ,[usur_Contrasenia]
+      ,T1.[empl_Id]
+	  ,t2.empl_Nombre + ' ' + t2.empl_Apellido as empl_Nombre 
+      ,[usur_UsuarioCreacion]
+      ,[usur_FechaCreacion]
+      ,[usur_UsuarioModificacion]
+      ,[usur_FechaModificacion]
+      ,[usur_Estado]
   FROM [tbUsuarios] T1 INNER JOIN [dbo].[tbEmpleados] T2
-  ON T1.emp_Id = T2.emp_Id
-  WHERE t1.usu_Contrasenia = @Password 
-  AND t1.usu_Usuario = @usu_Usuario
+  ON T1.empl_Id = T2.empl_Id
+  WHERE t1.usur_Contrasenia = @Password 
+  AND t1.usur_Usuario = @usur_Usuario
 
 END
 GO
@@ -559,17 +559,17 @@ GO
 
 GO
 CREATE OR ALTER    PROCEDURE UDP_RecuperarContrasenia
-@usu_Usuario VARCHAR(100),
-@usu_Contrasenia NVARCHAR(MAX)
+@usur_Usuario VARCHAR(100),
+@usur_Contrasenia NVARCHAR(MAX)
 
 as
 begin
 
-Declare @Password Nvarchar(max) = (HASHBYTES('SHA2_512',@usu_Contrasenia))
+Declare @Password Nvarchar(max) = (HASHBYTES('SHA2_512',@usur_Contrasenia))
 
 UPDATE [dbo].[tbUsuarios]
-   SET [usu_Contrasenia] = @Password
- WHERE usu_Usuario = @usu_Usuario
+   SET [usur_Contrasenia] = @Password
+ WHERE usur_Usuario = @usur_Usuario
 
 
 END
@@ -584,30 +584,30 @@ GO
 
 GO
 CREATE OR ALTER PROCEDURE UDP_tbUsuarios_Insert
-	@usu_Usuario Nvarchar(100),
-	@usu_Contrasenia Nvarchar(max),
-	@emp_Id int,
-	@usu_UsuarioCreacion int
+	@usur_Usuario Nvarchar(100),
+	@usur_Contrasenia Nvarchar(max),
+	@empl_Id int,
+	@usur_UsuarioCreacion int
 
 AS
 BEGIN
 
-Declare @Password Nvarchar(max) = (HASHBYTES('SHA2_512',@usu_Contrasenia))
+Declare @Password Nvarchar(max) = (HASHBYTES('SHA2_512',@usur_Contrasenia))
 
 INSERT INTO [dbo].[tbUsuarios]
-           ([usu_Usuario]
-           ,[usu_Contrasenia]
-           ,[emp_Id]
-           ,[usu_UsuarioCreacion]
-           ,[usu_FechaCreacion]
-           ,[usu_UsuarioModificacion]
-           ,[usu_FechaModificacion]
-           ,[usu_Estado])
+           ([usur_Usuario]
+           ,[usur_Contrasenia]
+           ,[empl_Id]
+           ,[usur_UsuarioCreacion]
+           ,[usur_FechaCreacion]
+           ,[usur_UsuarioModificacion]
+           ,[usur_FechaModificacion]
+           ,[usur_Estado])
      VALUES
-           (@usu_Usuario
+           (@usur_Usuario
            ,@Password
-           ,@emp_Id
-           ,@usu_UsuarioCreacion
+           ,@empl_Id
+           ,@usur_UsuarioCreacion
            ,GetDate()
            ,null
            ,null
@@ -619,19 +619,19 @@ GO
 --Editar Usuario 
 GO
 CREATE OR ALTER PROCEDURE UDP_tbUsuarios_Update
-	@usu_Id INT,
-	@emp_Id int,
+	@usur_Id INT,
+	@empl_Id int,
 	@usuarioModificacion int
 AS
 BEGIN
 
 
 UPDATE [dbo].[tbUsuarios]
-   SET [emp_Id] = @emp_Id
-      ,[usu_UsuarioModificacion] = @usuarioModificacion
-      ,[usu_FechaModificacion] = GetDate()
-      ,[usu_Estado] = 1
- WHERE usu_Id = @usu_Id
+   SET [empl_Id] = @empl_Id
+      ,[usur_UsuarioModificacion] = @usuarioModificacion
+      ,[usur_FechaModificacion] = GetDate()
+      ,[usur_Estado] = 1
+ WHERE usur_Id = @usur_Id
 
 
 END
@@ -640,13 +640,13 @@ GO
 
 --borrar Usuario
 CREATE OR ALTER PROCEDURE UDP_tbUsuario_Delete
-	@usu_Id INT
+	@usur_Id INT
 AS
 BEGIN
 
 UPDATE [dbo].[tbUsuarios]
-   SET [usu_Estado] = 0
- WHERE usu_Id = @usu_Id
+   SET [usur_Estado] = 0
+ WHERE usur_Id = @usur_Id
 
 
 END
@@ -658,48 +658,48 @@ GO
 
 GO
 CREATE PROCEDURE UDP_tbClientes_Insert
-    @cli_Nombre NVARCHAR(100),
-    @cli_Apellido NVARCHAR(100),
-    @cli_Telefono NVARCHAR(20),
-    @cli_CorreoElectronico NVARCHAR(100),
-    @cli_UsuarioCreacion INT
+    @clie_Nombre NVARCHAR(100),
+    @clie_Apellido NVARCHAR(100),
+    @clie_Telefono NVARCHAR(20),
+    @clie_CorreoElectronico NVARCHAR(100),
+    @clie_UsuarioCreacion INT
 AS
 BEGIN
-    INSERT INTO tbClientes([cli_Nombre], [cli_Apellido], [cli_Telefono], [cli_CorreoElectronico],[cli_FechaCreacion], [cli_UsuarioCreacion], [cli_FechaModificacion], [cli_UsuarioModificacion], [cli_Estado])
-    VALUES (@cli_Nombre, @cli_Apellido, @cli_Telefono, @cli_CorreoElectronico, GETDATE(), @cli_UsuarioCreacion, NULL,  NULL	, 1)
+    INSERT INTO tbClientes([clie_Nombre], [clie_Apellido], [clie_Telefono], [clie_CorreoElectronico],[clie_FechaCreacion], [clie_UsuarioCreacion], [clie_FechaModificacion], [clie_UsuarioModificacion], [clie_Estado])
+    VALUES (@clie_Nombre, @clie_Apellido, @clie_Telefono, @clie_CorreoElectronico, GETDATE(), @clie_UsuarioCreacion, NULL,  NULL	, 1)
 END
 GO
 --Procedimiento almacenado Update tbClientes
 GO
 CREATE PROCEDURE UDP_tbClientes_Update
-    @cli_Id INT,
-    @cli_Nombre NVARCHAR(100),
-    @cli_Apellido NVARCHAR(100),
-    @cli_Telefono NVARCHAR(20),
-    @cli_CorreoElectronico NVARCHAR(100),
-    @cli_UsuarioModificacion INT
+    @clie_Id INT,
+    @clie_Nombre NVARCHAR(100),
+    @clie_Apellido NVARCHAR(100),
+    @clie_Telefono NVARCHAR(20),
+    @clie_CorreoElectronico NVARCHAR(100),
+    @clie_UsuarioModificacion INT
 AS
 BEGIN
     UPDATE tbClientes
-    SET cli_Nombre = @cli_Nombre,
-        cli_Apellido = @cli_Apellido,
-        cli_Telefono = @cli_Telefono,
-        cli_CorreoElectronico = @cli_CorreoElectronico,
-        cli_FechaModificacion = GETDATE(),
-        cli_UsuarioModificacion = @cli_UsuarioModificacion
-    WHERE cli_Id = @cli_Id
+    SET clie_Nombre = @clie_Nombre,
+        clie_Apellido = @clie_Apellido,
+        clie_Telefono = @clie_Telefono,
+        clie_CorreoElectronico = @clie_CorreoElectronico,
+        clie_FechaModificacion = GETDATE(),
+        clie_UsuarioModificacion = @clie_UsuarioModificacion
+    WHERE clie_Id = @clie_Id
 END
 
 --Procedimiento almacenado Delete tbClientes
 GO
 CREATE PROCEDURE UDP_tbClientes_Delete (
-    @cli_Id INT
+    @clie_Id INT
 )
 AS
 BEGIN
     UPDATE tbClientes
-    SET cli_Estado = 0
-    WHERE cli_Id = @cli_Id
+    SET clie_Estado = 0
+    WHERE clie_Id = @clie_Id
 END
 
 
@@ -709,52 +709,52 @@ END
 
 GO
 CREATE OR ALTER PROCEDURE UDP_tbEmpleados_Insert
-	@emp_Nombre Nvarchar(150),
-	@emp_Apellido Nvarchar(150),
-	@emp_Sexo char(1),
-	@mun_Id INT,
-	@emp_DireccionExacta Nvarchar(500),
-	@estciv_Id INT,
-	@emp_Telefono Nvarchar(20),
-	@emp_CorreoElectronico Nvarchar(100),
-	@emp_FechaNacimiento Nvarchar(100),
-	@emp_FechaContratacion Nvarchar(100),
-	@car_Id INT,
-	@emp_UsuarioCreacion INT
+	@empl_Nombre Nvarchar(150),
+	@empl_Apellido Nvarchar(150),
+	@empl_Sexo char(1),
+	@muni_Id INT,
+	@empl_DireccionExacta Nvarchar(500),
+	@estc_Id INT,
+	@empl_Telefono Nvarchar(20),
+	@empl_CorreoElectronico Nvarchar(100),
+	@empl_FechaNacimiento Nvarchar(100),
+	@empl_FechaContratacion Nvarchar(100),
+	@carg_Id INT,
+	@empl_UsuarioCreacion INT
 AS
 BEGIN
 
 INSERT INTO [dbo].[tbEmpleados]
-           ([emp_Nombre]
-           ,[emp_Apellido]
-           ,[emp_Sexo]
-           ,[mun_Id]
-           ,[emp_DireccionExacta]
-           ,[estciv_Id]
-           ,[emp_Telefono]
-           ,[emp_CorreoElectronico]
-           ,[emp_FechaNacimiento]
-           ,[emp_FechaContratacion]
-           ,[car_Id]
-           ,[emp_FechaCreacion]
-           ,[emp_UsuarioCreacion]
-           ,[emp_FechaModificacion]
-           ,[emp_UsuarioModificacion]
-           ,[emp_Estado])
+           ([empl_Nombre]
+           ,[empl_Apellido]
+           ,[empl_Sexo]
+           ,[muni_Id]
+           ,[empl_DireccionExacta]
+           ,[estc_Id]
+           ,[empl_Telefono]
+           ,[empl_CorreoElectronico]
+           ,[empl_FechaNacimiento]
+           ,[empl_FechaContratacion]
+           ,[carg_Id]
+           ,[empl_FechaCreacion]
+           ,[empl_UsuarioCreacion]
+           ,[empl_FechaModificacion]
+           ,[empl_UsuarioModificacion]
+           ,[empl_Estado])
      VALUES
-           (@emp_Nombre
-           ,@emp_Apellido
-           ,@emp_Sexo
-           ,@mun_Id
-           ,@emp_DireccionExacta
-           ,@estciv_Id
-           ,@emp_Telefono
-           ,@emp_CorreoElectronico
-           ,@emp_FechaNacimiento
-           ,@emp_FechaContratacion
-           ,@car_Id
+           (@empl_Nombre
+           ,@empl_Apellido
+           ,@empl_Sexo
+           ,@muni_Id
+           ,@empl_DireccionExacta
+           ,@estc_Id
+           ,@empl_Telefono
+           ,@empl_CorreoElectronico
+           ,@empl_FechaNacimiento
+           ,@empl_FechaContratacion
+           ,@carg_Id
            ,GETDATE()
-           ,@emp_UsuarioCreacion
+           ,@empl_UsuarioCreacion
            ,null
            ,null
            ,1)
@@ -768,37 +768,37 @@ GO
 
 GO
 CREATE OR ALTER PROCEDURE UDP_tbEmpleados_Update
-	@emp_Id INT,
-	@emp_Nombre Nvarchar(150),
-	@emp_Apellido Nvarchar(150),
-	@emp_Sexo char(1),
-	@mun_Id INT,
-	@emp_DireccionExacta Nvarchar(500),
-	@estciv_Id INT,
-	@emp_Telefono Nvarchar(20),
-	@emp_CorreoElectronico Nvarchar(100),
-	@emp_FechaNacimiento Nvarchar(100),
-	@emp_FechaContratacion Nvarchar(100),
-	@car_Id INT,
-	@emp_UsuarioModificacion int
+	@empl_Id INT,
+	@empl_Nombre Nvarchar(150),
+	@empl_Apellido Nvarchar(150),
+	@empl_Sexo char(1),
+	@muni_Id INT,
+	@empl_DireccionExacta Nvarchar(500),
+	@estc_Id INT,
+	@empl_Telefono Nvarchar(20),
+	@empl_CorreoElectronico Nvarchar(100),
+	@empl_FechaNacimiento Nvarchar(100),
+	@empl_FechaContratacion Nvarchar(100),
+	@carg_Id INT,
+	@empl_UsuarioModificacion int
 AS
 BEGIN
 
 UPDATE [dbo].[tbEmpleados]
-   SET [emp_Nombre] = @emp_Nombre
-      ,[emp_Apellido] = @emp_Apellido
-      ,[emp_Sexo] = @emp_Sexo
-      ,[mun_Id] = @mun_Id
-      ,[emp_DireccionExacta] = @emp_DireccionExacta
-      ,[estciv_Id] = @estciv_Id
-      ,[emp_Telefono] = @emp_Telefono
-      ,[emp_CorreoElectronico] = @emp_CorreoElectronico
-      ,[emp_FechaNacimiento] = @emp_FechaNacimiento
-      ,[emp_FechaContratacion] = @emp_FechaContratacion
-      ,[car_Id] = @car_Id
-      ,[emp_FechaModificacion] = GETDATE()
-      ,[emp_UsuarioModificacion] = @emp_UsuarioModificacion
- WHERE emp_Id = @emp_Id
+   SET [empl_Nombre] = @empl_Nombre
+      ,[empl_Apellido] = @empl_Apellido
+      ,[empl_Sexo] = @empl_Sexo
+      ,[muni_Id] = @muni_Id
+      ,[empl_DireccionExacta] = @empl_DireccionExacta
+      ,[estc_Id] = @estc_Id
+      ,[empl_Telefono] = @empl_Telefono
+      ,[empl_CorreoElectronico] = @empl_CorreoElectronico
+      ,[empl_FechaNacimiento] = @empl_FechaNacimiento
+      ,[empl_FechaContratacion] = @empl_FechaContratacion
+      ,[carg_Id] = @carg_Id
+      ,[empl_FechaModificacion] = GETDATE()
+      ,[empl_UsuarioModificacion] = @empl_UsuarioModificacion
+ WHERE empl_Id = @empl_Id
 
 
 
@@ -806,13 +806,13 @@ END
 GO
 GO
 CREATE OR ALTER PROCEDURE UDP_tbEmpleados_Delete
-	@emp_Id INT
+	@empl_Id INT
 AS
 BEGIN
 
 UPDATE [dbo].[tbEmpleados]
-   SET emp_Estado = 0
- WHERE emp_Id = @emp_Id
+   SET empl_Estado = 0
+ WHERE empl_Id = @empl_Id
 
 
 
@@ -823,23 +823,23 @@ GO
 
 GO
 CREATE OR ALTER PROCEDURE UDP_tbCategorias_Insert
-	@cat_Descripcion Nvarchar(150),
-	@cat_UsuarioCreacion int
+	@cate_Descripcion Nvarchar(150),
+	@cate_UsuarioCreacion int
 
 AS
 BEGIN
 
 INSERT INTO [dbo].[tbCategoria]
-           ([cat_Descripcion]
-           ,[cat_FechaCreacion]
-           ,[cat_UsuarioCreacion]
-           ,[cat_FechaModificacion]
-           ,[cat_UsuarioModificacion]
-           ,[cat_Estado])
+           ([cate_Descripcion]
+           ,[cate_FechaCreacion]
+           ,[cate_UsuarioCreacion]
+           ,[cate_FechaModificacion]
+           ,[cate_UsuarioModificacion]
+           ,[cate_Estado])
      VALUES
-           (@cat_Descripcion
+           (@cate_Descripcion
            ,GETDATE()
-           ,@cat_UsuarioCreacion
+           ,@cate_UsuarioCreacion
            ,null
            ,null
            ,1)
@@ -851,17 +851,17 @@ GO
 
 GO
 CREATE OR ALTER PROCEDURE UDP_tbCategorias_Update
-	@cat_Id INT,
-	@cat_Descripcion Nvarchar(200),
-	@cat_UsuarioModificacion int
+	@cate_Id INT,
+	@cate_Descripcion Nvarchar(200),
+	@cate_UsuarioModificacion int
 AS
 BEGIN
 
 UPDATE [dbo].[tbCategoria]
-   SET [cat_Descripcion] = @cat_Descripcion
-      ,[cat_FechaModificacion] = GETDATE()
-      ,[cat_UsuarioModificacion] = @cat_UsuarioModificacion
- WHERE cat_Id = @cat_Id
+   SET [cate_Descripcion] = @cate_Descripcion
+      ,[cate_FechaModificacion] = GETDATE()
+      ,[cate_UsuarioModificacion] = @cate_UsuarioModificacion
+ WHERE cate_Id = @cate_Id
 
 
 END
@@ -869,14 +869,14 @@ GO
 
 GO
 CREATE OR ALTER PROCEDURE UDP_tbCategorias_Delete
-	@cat_Id INT
+	@cate_Id INT
 AS
 BEGIN
 
 
 UPDATE [dbo].[tbCategoria]
-   SET [cat_Estado] = 0
- WHERE cat_Id = @cat_Id
+   SET [cate_Estado] = 0
+ WHERE cate_Id = @cate_Id
 
 
 END
@@ -886,23 +886,23 @@ GO
 --Procedimientos almacenados de Cargos
 
 CREATE OR ALTER PROCEDURE UDP_tbCargos_Insert
-	@car_Nombre Nvarchar(150),
-	@car_UsuarioCreacion int
+	@carg_Nombre Nvarchar(150),
+	@carg_UsuarioCreacion int
 
 AS
 BEGIN
 
 INSERT INTO [dbo].[tbCargos]
-           ([car_Nombre]
-           ,[car_FechaCreacion]
-           ,[car_UsuarioCreacion]
-           ,[car_FechaModificacion]
-           ,[car_UsuarioModificacion]
-           ,[car_Estado])
+           ([carg_Nombre]
+           ,[carg_FechaCreacion]
+           ,[carg_UsuarioCreacion]
+           ,[carg_FechaModificacion]
+           ,[carg_UsuarioModificacion]
+           ,[carg_Estado])
      VALUES
-           (@car_Nombre
+           (@carg_Nombre
            ,GETDATE()
-           ,@car_UsuarioCreacion
+           ,@carg_UsuarioCreacion
            ,null
            ,null
            ,1)
@@ -913,27 +913,27 @@ GO
 
 GO
 CREATE OR ALTER PROCEDURE UDP_tbCargos_Update
-	@car_Id INT,
-	@car_Nombre Nvarchar(150),
-	@car_UsuarioModificacion int
+	@carg_Id INT,
+	@carg_Nombre Nvarchar(150),
+	@carg_UsuarioModificacion int
 AS
 BEGIN
 
 UPDATE [dbo].[tbCargos]
-   SET [car_Nombre] = @car_Nombre
-      ,[car_FechaModificacion] = GETDATE()
-      ,[car_UsuarioModificacion] = @car_UsuarioModificacion
- WHERE car_Id = @car_Id
+   SET [carg_Nombre] = @carg_Nombre
+      ,[carg_FechaModificacion] = GETDATE()
+      ,[carg_UsuarioModificacion] = @carg_UsuarioModificacion
+ WHERE carg_Id = @carg_Id
  
  GO
 CREATE OR ALTER PROCEDURE UDP_tbCargos_Delete
-	@car_Id INT
+	@carg_Id INT
 AS
 BEGIN
 
 UPDATE [dbo].[tbCargos]
-   SET [car_Estado] = 0
- WHERE car_Id = @car_Id
+   SET [carg_Estado] = 0
+ WHERE carg_Id = @carg_Id
 
 END
 GO
@@ -943,29 +943,29 @@ GO
 --Procedimientos Almacenados de Servicios
 
 CREATE OR ALTER PROCEDURE UDP_tbServicios_Insert
-	@ser_Nombre Nvarchar(150),
-	@ser_Descripcion Nvarchar(500),
-	@ser_Precio Nvarchar(150),
-	@ser_UsuarioCreacion int
+	@serv_Nombre Nvarchar(150),
+	@serv_Descripcion Nvarchar(500),
+	@serv_Precio Nvarchar(150),
+	@serv_UsuarioCreacion int
 
 AS
 BEGIN
 
 INSERT INTO [dbo].[tbServicios]
-           ([ser_Nombre]
-           ,[ser_Descripcion]
-           ,[ser_Precio]
-           ,[ser_FechaCreacion]
-           ,[ser_UsuarioCreacion]
-           ,[ser_FechaModificacion]
-           ,[ser_UsuarioModificacion]
-           ,[ser_Estado])
+           ([serv_Nombre]
+           ,[serv_Descripcion]
+           ,[serv_Precio]
+           ,[serv_FechaCreacion]
+           ,[serv_UsuarioCreacion]
+           ,[serv_FechaModificacion]
+           ,[serv_UsuarioModificacion]
+           ,[serv_Estado])
      VALUES
-           (@ser_Nombre
-           ,@ser_Descripcion
-           ,@ser_Precio
+           (@serv_Nombre
+           ,@serv_Descripcion
+           ,@serv_Precio
            ,GETDATE()
-           ,@ser_UsuarioCreacion
+           ,@serv_UsuarioCreacion
            ,NULL
            ,NULL
            ,1)
@@ -976,11 +976,11 @@ GO
 
 GO
 CREATE OR ALTER PROCEDURE UDP_tbServicios_Update
-	@ser_Id INT,
-	@ser_Nombre Nvarchar(150),
-	@ser_Descripcion Nvarchar(500),
-	@ser_Precio Nvarchar(150),
-	@ser_UsuarioModificacion int
+	@serv_Id INT,
+	@serv_Nombre Nvarchar(150),
+	@serv_Descripcion Nvarchar(500),
+	@serv_Precio Nvarchar(150),
+	@serv_UsuarioModificacion int
 AS
 BEGIN
 
@@ -992,7 +992,7 @@ BEGIN
 
 
 CREATE OR ALTER PROCEDURE UDP_tbCargos_Delete
-	@car_Id INT
+	@carg_Id INT
 AS
 BEGIN
 
@@ -1007,67 +1007,67 @@ GO
 GO
 CREATE PROCEDURE UDP_tbMetodoPago_Insert
 (
-    @metpago_Descripcion             NVARCHAR (100),
-    @metpago_UsuarioCreacion         INT
+    @metp_Descripcion             NVARCHAR (100),
+    @metp_UsuarioCreacion         INT
 )
 AS
 BEGIN
 
-    INSERT INTO tbMetodoPago ([metpago_Descripcion], [metpago_FechaCreacion], [metpago_UsuarioCreacion], [metpago_FechaModificacion], [metpago_UsuarioModificacion], [metpago_Estado])
-    VALUES (@metpago_Descripcion, GETDATE(), @metpago_UsuarioCreacion, NULL, NULL, 1);
+    INSERT INTO tbMetodoPago ([metp_Descripcion], [metp_FechaCreacion], [metp_UsuarioCreacion], [metp_FechaModificacion], [metp_UsuarioModificacion], [metp_Estado])
+    VALUES (@metp_Descripcion, GETDATE(), @metp_UsuarioCreacion, NULL, NULL, 1);
 END
 
 -----------Procedimiento Update MetodoPago
 GO
 CREATE PROCEDURE UDP_tbMetodoPago_Update
-	@metpago_Id                      INT,
-	@metpago_Descripcion             NVARCHAR (100),
-	@metpago_UsuarioModificacion     INT
+	@metp_Id                      INT,
+	@metp_Descripcion             NVARCHAR (100),
+	@metp_UsuarioModificacion     INT
 AS
 BEGIN
 	UPDATE tbMetodoPago
-	SET metpago_Descripcion = @metpago_Descripcion,
-	    metpago_FechaModificacion = GETDATE(),
-	    metpago_UsuarioModificacion = @metpago_UsuarioModificacion
-	WHERE metpago_Id = @metpago_Id;
+	SET metp_Descripcion = @metp_Descripcion,
+	    metp_FechaModificacion = GETDATE(),
+	    metp_UsuarioModificacion = @metp_UsuarioModificacion
+	WHERE metp_Id = @metp_Id;
 END
 
 -----------Procedimiento Delete MetodoPago
 GO
 CREATE PROCEDURE UDP_tbMetodoPago_Delete (
-    @metpago_Id INT, @metpago_UsuarioModificacion INT
+    @metp_Id INT, @metp_UsuarioModificacion INT
 )
 AS
 BEGIN
     UPDATE tbMetodoPago
-    SET metpago_Estado = 0,
-        metpago_FechaModificacion = GETDATE(),
-        metpago_UsuarioModificacion = @metpago_UsuarioModificacion 
-    WHERE  metpago_Id = @metpago_Id
+    SET metp_Estado = 0,
+        metp_FechaModificacion = GETDATE(),
+        metp_UsuarioModificacion = @metp_UsuarioModificacion 
+    WHERE  metp_Id = @metp_Id
 END
 
 GO
 
 -----------Procedimiento Insert EstadoCiviles
 CREATE OR ALTER  PROCEDURE UDP_tbEstadoCiviles_Insert
-@estciv_Id  INT,
-@estciv_Descripcion Varchar(200),
-@estciv_UsuarioCreacion INT
+@estc_Id  INT,
+@estc_Descripcion Varchar(200),
+@estc_UsuarioCreacion INT
 as
 begin
 INSERT INTO [dbo].[tbEstadosCiviles]
-           ([estciv_Id]
-           ,[estciv_Descripcion]
-           ,[estciv_FechaCreacion]
-           ,[estciv_UsuarioCreacion]
-           ,[estciv_FechaModificacion]
-           ,[estciv_UsuarioModificacion]
-           ,[estciv_Estado])
+           ([estc_Id]
+           ,[estc_Descripcion]
+           ,[estc_FechaCreacion]
+           ,[estc_UsuarioCreacion]
+           ,[estc_FechaModificacion]
+           ,[estc_UsuarioModificacion]
+           ,[estc_Estado])
      VALUES
-           (@estciv_Id
-           ,@estciv_Descripcion
+           (@estc_Id
+           ,@estc_Descripcion
            ,GETDATE()
-           ,@estciv_UsuarioCreacion
+           ,@estc_UsuarioCreacion
            ,NULL
            ,NULL
            ,1)
@@ -1078,18 +1078,18 @@ GO
 
 -----------Procedimiento Update EstadoCiviles
 CREATE OR ALTER  PROCEDURE UDP_tbEstadoCiviles_Update
-@estciv_Id  INT,
-@estciv_Descripcion Varchar(200),
-@estciv_UsuarioModificacion INT
+@estc_Id  INT,
+@estc_Descripcion Varchar(200),
+@estc_UsuarioModificacion INT
 
 as
 begin
 
 UPDATE [dbo].[tbEstadosCiviles]
-   SET[estciv_Descripcion] = @estciv_Descripcion
-      ,[estciv_FechaModificacion] = GETDATE()
-      ,[estciv_UsuarioModificacion] = @estciv_UsuarioModificacion
- WHERE estciv_Id = @estciv_Id
+   SET[estc_Descripcion] = @estc_Descripcion
+      ,[estc_FechaModificacion] = GETDATE()
+      ,[estc_UsuarioModificacion] = @estc_UsuarioModificacion
+ WHERE estc_Id = @estc_Id
 
 END
 
@@ -1097,14 +1097,14 @@ GO
 
 -----------Procedimiento Delete EstadoCiviles
 CREATE OR ALTER  PROCEDURE UDP_tbEstadoCiviles_Delete
-@estciv_Id  INT
+@estc_Id  INT
 
 as
 begin
 
 UPDATE [dbo].[tbEstadosCiviles]
-   SET estciv_Estado = 0
- WHERE estciv_Id = @estciv_Id
+   SET estc_Estado = 0
+ WHERE estc_Id = @estc_Id
 
 end
 
@@ -1113,33 +1113,33 @@ GO
 -----------Procedimiento Insert Departamentos
 GO
 CREATE OR ALTER PROCEDURE UDP_tbDepartamentos_Insert
-    @dep_Id NVARCHAR(4),
-    @dep_Descripcion NVARCHAR(150),
-	@dep_Codigo		CHAR(2),
-	@dep_UsuarioCreacion INT
+    @depa_Id NVARCHAR(4),
+    @depa_Descripcion NVARCHAR(150),
+	@depa_Codigo		CHAR(2),
+	@depa_UsuarioCreacion INT
 
 AS
 BEGIN
-    INSERT INTO tbDepartamentos([dep_Id],[dep_Descripcion], dep_Codigo, [dep_FechaCreacion], [dep_UsuarioCreacion], [dep_FechaModificacion], [dep_UsuarioModificacion], [dep_Estado]) 
-    VALUES (@dep_Id, @dep_Descripcion,@dep_Codigo, GETDATE(), @dep_UsuarioCreacion, NULL, NULL, 1);
+    INSERT INTO tbDepartamentos([depa_Id],[depa_Descripcion], depa_Codigo, [depa_FechaCreacion], [depa_UsuarioCreacion], [depa_FechaModificacion], [depa_UsuarioModificacion], [depa_Estado]) 
+    VALUES (@depa_Id, @depa_Descripcion,@depa_Codigo, GETDATE(), @depa_UsuarioCreacion, NULL, NULL, 1);
 END
 
 GO
 -----------Procedimiento Update Departamentos
 CREATE PROCEDURE UDP_tbDepartamentos_Update
-    @dep_Id INT,
-    @dep_Descripcion NVARCHAR(200),
-	@dep_Codigo		CHAR(2),
-    @dep_UsuarioModificacion INT
+    @depa_Id INT,
+    @depa_Descripcion NVARCHAR(200),
+	@depa_Codigo		CHAR(2),
+    @depa_UsuarioModificacion INT
 AS
 BEGIN
 
     UPDATE tbDepartamentos
-    SET dep_Descripcion = @dep_Descripcion,
-		dep_Codigo = @dep_Codigo,
-        dep_FechaModificacion = GETDATE(),
-        dep_UsuarioModificacion = @dep_UsuarioModificacion
-    WHERE dep_Id = @dep_Id;
+    SET depa_Descripcion = @depa_Descripcion,
+		depa_Codigo = @depa_Codigo,
+        depa_FechaModificacion = GETDATE(),
+        depa_UsuarioModificacion = @depa_UsuarioModificacion
+    WHERE depa_Id = @depa_Id;
 END
 
 
@@ -1147,44 +1147,44 @@ GO
 -----------Procedimiento Delete Departamentos
 
 CREATE OR ALTER PROCEDURE UDP_tbDepartamentos_Delete
-	@dep_Id INT
+	@depa_Id INT
 AS
 BEGIN
 
 UPDATE [dbo].[tbDepartamentos]
-   SET [dep_Estado] = 0
- WHERE [dep_Id] = @dep_Id
+   SET [depa_Estado] = 0
+ WHERE [depa_Id] = @depa_Id
 
 END
 GO
 
 -----------Procedimiento Insert Municipios
 Create Procedure UDP_tbMunicipios_Insert
-@mun_Id INT,
-@mun_Descripcion Nvarchar(150),
-@mun_Codigo Char(4),
-@dep_Id INT,
-@mun_UsuarioCreacion INT
+@muni_Id INT,
+@muni_Descripcion Nvarchar(150),
+@muni_Codigo Char(4),
+@depa_Id INT,
+@muni_UsuarioCreacion INT
 as
 begin
 
 INSERT INTO [dbo].[tbMunicipios]
-           ([mun_Id]
-           ,[mun_Descripcion]
-		   ,mun_Codigo
-           ,[dep_Id]
-           ,[mun_FechaCreacion]
-           ,[mun_UsuarioCreacion]
-           ,[mun_FechaModificacion]
-           ,[mun_UsuarioModificacion]
-           ,[mun_Estado])
+           ([muni_Id]
+           ,[muni_Descripcion]
+		   ,muni_Codigo
+           ,[depa_Id]
+           ,[muni_FechaCreacion]
+           ,[muni_UsuarioCreacion]
+           ,[muni_FechaModificacion]
+           ,[muni_UsuarioModificacion]
+           ,[muni_Estado])
      VALUES
-           (@mun_Id
-           ,@mun_Descripcion
-		   ,@mun_Codigo
-           ,@dep_Id
+           (@muni_Id
+           ,@muni_Descripcion
+		   ,@muni_Codigo
+           ,@depa_Id
            ,GETDATE()
-           ,@mun_UsuarioCreacion
+           ,@muni_UsuarioCreacion
            ,NULL
            ,NULL
            ,1)
@@ -1195,21 +1195,21 @@ GO
 
 -----------Procedimiento Update Municipios
 Create Procedure UDP_tbMunicipios_Update
-@mun_Id INT,
-@mun_Descripcion Nvarchar(150),
-@mun_Codigo CHAR(4),
-@dep_Id INT,
-@mun_UsuarioModificacion INT
+@muni_Id INT,
+@muni_Descripcion Nvarchar(150),
+@muni_Codigo CHAR(4),
+@depa_Id INT,
+@muni_UsuarioModificacion INT
 as
 begin
 
 UPDATE [dbo].[tbMunicipios]
-   SET [dep_Id] = @dep_Id
-      ,mun_Descripcion = @mun_Descripcion
-	  ,mun_Codigo = @mun_Codigo
-      ,[mun_FechaModificacion] = GETDATE()
-      ,[mun_UsuarioModificacion] = @mun_UsuarioModificacion
- WHERE mun_Id = @mun_Id
+   SET [depa_Id] = @depa_Id
+      ,muni_Descripcion = @muni_Descripcion
+	  ,muni_Codigo = @muni_Codigo
+      ,[muni_FechaModificacion] = GETDATE()
+      ,[muni_UsuarioModificacion] = @muni_UsuarioModificacion
+ WHERE muni_Id = @muni_Id
 
 
 
@@ -1217,13 +1217,13 @@ end
 GO
 -----------Procedimiento Delete Municipios
 Create Procedure UDP_tbMunicipiosDelete
-@mun_Id INT
+@muni_Id INT
 as
 begin
 
 UPDATE [dbo].[tbMunicipios]
-   SET mun_Estado = 0
- WHERE mun_Id = @mun_Id
+   SET muni_Estado = 0
+ WHERE muni_Id = @muni_Id
 
 
 
