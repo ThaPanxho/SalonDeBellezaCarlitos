@@ -24,13 +24,13 @@ CREATE TABLE acce.tbUsuarios(
 );
 
 CREATE TABLE gnrl.tbMetodoPago(
-    metp_Id                      INT IDENTITY(1,1) not null,
-    metp_Descripcion             NVARCHAR (100) NOT NULL,
-	metp_FechaCreacion		    DATETIME NOT NULL DEFAULT GETDATE(),
+    metp_Id                         INT IDENTITY(1,1) not null,
+    metp_Descripcion                NVARCHAR (100) NOT NULL,
+	metp_FechaCreacion		        DATETIME NOT NULL DEFAULT GETDATE(),
 	metp_UsuarioCreacion		    INT not null,
-	metp_FechaModificacion	    DATETIME,
-	metp_UsuarioModificacion     INT,
-	metp_Estado				    BIT NOT NULL DEFAULT 1,
+	metp_FechaModificacion	        DATETIME,
+	metp_UsuarioModificacion        INT,
+	metp_Estado				        BIT NOT NULL DEFAULT 1,
 	
 	CONSTRAINT PK_gnrl_tbMetodoPagos_metp_Id PRIMARY KEY(metp_Id),
 	CONSTRAINT FK_gnrl_tbMetodoPagos_acce_tbUsuarios_metp_UsuarioCreacion_usur_Id FOREIGN KEY(metp_UsuarioCreacion) REFERENCES acce.tbUsuarios(usur_Id),
@@ -39,13 +39,13 @@ CREATE TABLE gnrl.tbMetodoPago(
 );
 
 CREATE TABLE gnrl.tbEstadosCiviles(
-	estc_Id					INT IDENTITY(1,1),
+	estc_Id					    INT IDENTITY(1,1),
 	estc_Descripcion			NVARCHAR(200) not null UNIQUE,
-	estc_FechaCreacion		DATETIME NOT NULL DEFAULT GETDATE(),
+	estc_FechaCreacion		    DATETIME NOT NULL DEFAULT GETDATE(),
 	estc_UsuarioCreacion		INT not null,
-	estc_FechaModificacion	DATETIME,
-	estc_UsuarioModificacion  INT,
-	estc_Estado				BIT NOT NULL DEFAULT 1, 
+	estc_FechaModificacion	    DATETIME,
+	estc_UsuarioModificacion    INT,
+	estc_Estado				    BIT NOT NULL DEFAULT 1, 
 	CONSTRAINT PK_gnrl_tbEstadosCiviles_estc_Id PRIMARY KEY(estc_Id),
 	CONSTRAINT FK_gnrl_tbEstadosCiviles_acce_tbUsuarios_estc_UsuarioCreacion_usur_Id FOREIGN KEY(estc_UsuarioCreacion) REFERENCES acce.tbUsuarios(usur_Id),
 	CONSTRAINT FK_gnrl_tbEstadosCiviles_acce_tbUsuarios_estc_UsuarioModificacion_usur_Id FOREIGN KEY(estc_UsuarioModificacion) REFERENCES acce.tbUsuarios(usur_Id)
@@ -53,14 +53,14 @@ CREATE TABLE gnrl.tbEstadosCiviles(
 
 
 CREATE TABLE gnrl.tbDepartamentos(
-	depa_Id					INT IDENTITY(1,1),
+	depa_Id					    INT IDENTITY(1,1),
 	depa_Descripcion			NVARCHAR(200) NOT NULL UNIQUE,
-    depa_Codigo              CHAR(2) NOT NULL UNIQUE,
-	depa_FechaCreacion		DATETIME NOT NULL DEFAULT GETDATE(),
+    depa_Codigo                 CHAR(2) NOT NULL UNIQUE,
+	depa_FechaCreacion		    DATETIME NOT NULL DEFAULT GETDATE(),
 	depa_UsuarioCreacion		INT not null,
-	depa_FechaModificacion	DATETIME,
-	depa_UsuarioModificacion INT,
-	depa_Estado				BIT NOT NULL DEFAULT 1,
+	depa_FechaModificacion	    DATETIME,
+	depa_UsuarioModificacion    INT,
+	depa_Estado				    BIT NOT NULL DEFAULT 1,
 	CONSTRAINT PK_gnrl_tbDepartamentos_depa_Id PRIMARY KEY(depa_Id),
 	CONSTRAINT FK_gnrl_tbDepartamentos_acce_tbUsuarios_depa_UsuarioCreacion_usur_Id FOREIGN KEY(depa_UsuarioCreacion) REFERENCES acce.tbUsuarios(usur_Id),
 	CONSTRAINT FK_gnrl_tbDepartamentos_acce_tbUsuarios_depa_UsuarioModificacion_usur_Id FOREIGN KEY(depa_UsuarioModificacion) REFERENCES acce.tbUsuarios(usur_Id)
@@ -69,15 +69,15 @@ CREATE TABLE gnrl.tbDepartamentos(
 
 
 CREATE TABLE gnrl.tbMunicipios(
-	muni_Id					INT IDENTITY(1,1),
+	muni_Id					    INT IDENTITY(1,1),
 	muni_Descripcion			NVARCHAR(200) NOT NULL,
-    muni_Codigo              CHAR(4) NOT NULL UNIQUE,
-	depa_Id					INT NOT NULL,
-	muni_FechaCreacion		DATETIME NOT NULL DEFAULT GETDATE(),
+    muni_Codigo                 CHAR(4) NOT NULL UNIQUE,
+	depa_Id					    INT NOT NULL,
+	muni_FechaCreacion		    DATETIME NOT NULL DEFAULT GETDATE(),
 	muni_UsuarioCreacion		INT not null,
-	muni_FechaModificacion	DATETIME,
-	muni_UsuarioModificacion INT,
-	muni_Estado				BIT NOT NULL DEFAULT 1,
+	muni_FechaModificacion	    DATETIME,
+	muni_UsuarioModificacion    INT,
+	muni_Estado				    BIT NOT NULL DEFAULT 1,
 	CONSTRAINT PK_gnrl_tbMunicipios_muni_Id PRIMARY KEY(muni_Id),
 	CONSTRAINT FK_tbMunicipios_tbDepartamentos_depa_Id FOREIGN KEY(depa_Id) REFERENCES gnrl.tbDepartamentos(depa_Id),
 	CONSTRAINT FK_gnrl_tbMunicipios_acce_tbUsuarios_muni_UsuarioCreacion_usur_Id FOREIGN KEY(muni_UsuarioCreacion) REFERENCES acce.tbUsuarios(usur_Id),
@@ -85,35 +85,35 @@ CREATE TABLE gnrl.tbMunicipios(
 );
 
 CREATE TABLE salo.tbCargos(
-	carg_Id					INT IDENTITY(1,1) NOT NULL,
+	carg_Id					        INT IDENTITY(1,1) NOT NULL,
 	carg_Descripcion				NVARCHAR(200) NOT NULL UNIQUE,
-	carg_FechaCreacion		DATETIME NOT NULL DEFAULT GETDATE(),
-	carg_UsuarioCreacion		INT not null,
-	carg_FechaModificacion	DATETIME,
-	carg_UsuarioModificacion INT,
-	carg_Estado				BIT NOT NULL DEFAULT 1,
+	carg_FechaCreacion		        DATETIME NOT NULL DEFAULT GETDATE(),
+	carg_UsuarioCreacion		    INT not null,
+	carg_FechaModificacion	        DATETIME,
+	carg_UsuarioModificacion        INT,
+	carg_Estado				        BIT NOT NULL DEFAULT 1,
 	CONSTRAINT PK_salo_tbCargos_carg_Id PRIMARY KEY(carg_Id),
 	CONSTRAINT FK_salo_tbCargos_acce_tbUsuarios_carg_UsuarioCreacion_usur_Id FOREIGN KEY(carg_UsuarioCreacion) REFERENCES acce.tbUsuarios(usur_Id),
 	CONSTRAINT FK_salo_tbCargos_acce_tbUsuarios_carg_UsuarioModificacion_usur_Id FOREIGN KEY(carg_UsuarioModificacion) REFERENCES acce.tbUsuarios(usur_Id)
 );
 
 CREATE TABLE salo.tbEmpleados(
-	empl_Id                              INT IDENTITY (1,1),
+	empl_Id                             INT IDENTITY (1,1),
 	empl_Nombre							NVARCHAR(150) NOT NULL,
 	empl_Apellido						NVARCHAR(150) NOT NULL,
 	empl_Sexo							CHAR(1) NOT NULL,
 	muni_Id								INT NOT NULL,
-	empl_DireccionExacta					NVARCHAR(500) NOT NULL,
-	estc_Id							INT NOT NULL,
+	empl_DireccionExacta			    NVARCHAR(500) NOT NULL,
+	estc_Id							    INT NOT NULL,
 	empl_Telefono						NVARCHAR(20) NOT NULL,
 	empl_CorreoElectronico				NVARCHAR(100) NOT NULL,
-	empl_FechaNacimiento					Date NOT NULL,
+	empl_FechaNacimiento				Date NOT NULL,
 	empl_FechaContratacion				Date NOT NULL,
 	carg_Id								INT NOT NULL,
 	empl_FechaCreacion					DATETIME NOT NULL DEFAULT GETDATE(),
-	empl_UsuarioCreacion					INT not null,
+	empl_UsuarioCreacion				INT not null,
 	empl_FechaModificacion				DATETIME,
-	empl_UsuarioModificacion				INT,
+	empl_UsuarioModificacion			INT,
 	empl_Estado							BIT NOT NULL DEFAULT 1,
 
 CONSTRAINT PK_salo_tbEmpleados_empl_Id PRIMARY KEY(empl_Id),
@@ -131,12 +131,12 @@ CREATE TABLE salo.tbProveedores(
     prov_Id                              INT IDENTITY(1,1),
     prov_NombreEmpresa                   NVARCHAR (150) NOT NULL UNIQUE,
     prov_NombreContacto                  NVARCHAR (150) NOT NULL,
-    muni_Id                               INT NOT NULL,
+    muni_Id                              INT NOT NULL,
     prov_DireccionExacta                 NVARCHAR (500) NOT NULL,
     prov_Telefono                        NVARCHAR (20) NOT NULL,
     prov_FechaCreacion		             DATETIME NOT NULL DEFAULT GETDATE(),
     prov_UsuarioCreacion		         INT NOT null,
-    prov_FechaModificacion	            DATETIME,
+    prov_FechaModificacion	             DATETIME,
     prov_UsuarioModificacion             INT,
     prov_Estado                          BIT NOT NULL DEFAULT 1,
     CONSTRAINT PK_salo_tbProveedores_prov_Id PRIMARY KEY(prov_Id),
@@ -145,13 +145,13 @@ CREATE TABLE salo.tbProveedores(
 
 
 CREATE TABLE salo.tbCategorias(
-    cate_Id                              INT IDENTITY(1,1),
-    cate_Descripcion                     NVARCHAR (150) NOT NULL UNIQUE,
-    cate_FechaCreacion		            DATETIME NOT NULL DEFAULT GETDATE(),
+    cate_Id                                 INT IDENTITY(1,1),
+    cate_Descripcion                        NVARCHAR (150) NOT NULL UNIQUE,
+    cate_FechaCreacion		                DATETIME NOT NULL DEFAULT GETDATE(),
     cate_UsuarioCreacion		            INT not null,
-    cate_FechaModificacion	            DATETIME,
-    cate_UsuarioModificacion             INT,
-    cate_Estado				            BIT NOT NULL DEFAULT 1,
+    cate_FechaModificacion	                DATETIME,
+    cate_UsuarioModificacion                INT,
+    cate_Estado				                BIT NOT NULL DEFAULT 1,
 CONSTRAINT PK_salo_tbCategoria_cate_Id PRIMARY KEY(cate_Id),
 CONSTRAINT FK_salo_tbCategoria_acce_tbUsuarios_cate_UsuarioCreacion_usur_Id FOREIGN KEY(cate_UsuarioCreacion) REFERENCES acce.tbUsuarios(usur_Id),
 CONSTRAINT FK_salo_tbCategoria_acce_tbUsuarios_cate_UsuarioModificacion_usur_Id FOREIGN KEY(cate_UsuarioModificacion) REFERENCES acce.tbUsuarios(usur_Id)
@@ -166,9 +166,9 @@ CREATE TABLE salo.tbProductos(
     prod_Stock		                    INT not null,
     prov_id								INT,
     prod_FechaCreacion					DATETIME NOT NULL DEFAULT GETDATE(),
-    prod_UsuarioCreacion					INT not null,
+    prod_UsuarioCreacion				INT not null,
     prod_FechaModificacion				DATETIME,
-    prod_UsuarioModificacion				INT,
+    prod_UsuarioModificacion			INT,
     prod_Estado							BIT NOT NULL DEFAULT 1,
 
 CONSTRAINT PK_salo_tbProductos_prod_Id PRIMARY KEY(prod_Id),
@@ -181,15 +181,15 @@ CONSTRAINT FK_salo_tbProductos_acce_tbUsuarios_prod_UsuarioModificacion_usur_Id 
 
 
 CREATE TABLE salo.tbClientes(
-clie_Id                              INT IDENTITY (1,1),
+clie_Id                             INT IDENTITY (1,1),
 clie_Nombre							NVARCHAR(150) NOT NULL,
 clie_Apellido						NVARCHAR(150) NOT NULL,
 clie_Telefono						NVARCHAR(20) NOT NULL,
 clie_CorreoElectronico				NVARCHAR(100),
 clie_FechaCreacion					DATETIME NOT NULL DEFAULT GETDATE(),
-clie_UsuarioCreacion					INT not null,
+clie_UsuarioCreacion				INT not null,
 clie_FechaModificacion				DATETIME,
-clie_UsuarioModificacion				INT,    
+clie_UsuarioModificacion			INT,    
 clie_Estado							BIT NOT NULL DEFAULT 1,
 
 CONSTRAINT PK_salo_tbClientes_clie_Id PRIMARY KEY(clie_id),
@@ -199,14 +199,14 @@ CONSTRAINT FK_salo_tbClientes_acce_tbUsuarios_clie_UsuarioModificacion_usur_Id F
 );
 
 CREATE TABLE salo.tbServicios(
-    serv_Id                          INT IDENTITY(1,1),
-    serv_Nombre                      NVARCHAR(150) NOT NULL,
-    serv_Descripcion                 NVARCHAR(500) ,
-    serv_Precio                      DECIMAL(18,2) NOT NULL,
+    serv_Id                         INT IDENTITY(1,1),
+    serv_Nombre                     NVARCHAR(150) NOT NULL,
+    serv_Descripcion                NVARCHAR(500) ,
+    serv_Precio                     DECIMAL(18,2) NOT NULL,
     serv_FechaCreacion				DATETIME NOT NULL DEFAULT GETDATE(),
-    serv_UsuarioCreacion				INT not null,
+    serv_UsuarioCreacion			INT not null,
     serv_FechaModificacion			DATETIME,
-    serv_UsuarioModificacion		    INT,    
+    serv_UsuarioModificacion		INT,    
     serv_Estado					    BIT NOT NULL DEFAULT 1,
 
     CONSTRAINT PK_salo_tbServicio_serv_Id PRIMARY KEY(serv_Id),
@@ -216,15 +216,15 @@ CREATE TABLE salo.tbServicios(
 );
 
 CREATE TABLE salo.tbFacturas(
-    fact_Id                              INT IDENTITY(1,1),
-    clie_Id                              INT not null,
-    fact_Pedidos							DATETIME NOT NULL DEFAULT GETDATE(),
+    fact_Id                             INT IDENTITY(1,1),
+    clie_Id                             INT not null,
+    fact_Pedidos						DATETIME NOT NULL DEFAULT GETDATE(),
     empl_Id								INT not null,
-    metp_Id							INT not null,
+    metp_Id							    INT not null,
     fact_FechaCreacion					DATETIME NOT NULL DEFAULT GETDATE(),
-    fact_UsuarioCreacion					INT not null,
+    fact_UsuarioCreacion				INT not null,
     fact_FechaModificacion				DATETIME,
-    fact_UsuarioModificacion				INT,
+    fact_UsuarioModificacion			INT,
     fact_Estado							BIT NOT NULL DEFAULT 1,
 
     CONSTRAINT PK_salo_tbFacturas_fact_Id PRIMARY KEY(fact_Id),
@@ -239,8 +239,8 @@ CREATE TABLE salo.tbFacturas(
 
 CREATE TABLE salo.tbFacturasDetalles(
 fade_Id                             INT IDENTITY(1,1),
-fact_Id                              INT not null,
-prod_Id                              INT not null,
+fact_Id                             INT not null,
+prod_Id                             INT not null,
 fade_Cantidad						INT NOT NULL,
 fade_Precio							DECIMAL (18,2) NOT NULL,
 fade_FechaCreacion					DATETIME NOT NULL DEFAULT GETDATE(),
@@ -257,14 +257,14 @@ CONSTRAINT FK_salo_tbFacturasDetalles_acce_tbUsuarios_fade_UsuarioModificacion_u
 );
 
 CREATE TABLE salo.tbSucursales(
-    sucu_Id                              INT IDENTITY(1,1), 
-    sucu_Descripcion                     NVARCHAR(200) NOT NULL,
-    muni_Id                              INT,
+    sucu_Id                             INT IDENTITY(1,1), 
+    sucu_Descripcion                    NVARCHAR(200) NOT NULL,
+    muni_Id                             INT,
 	sucu_DireccionExacta				NVARCHAR(500) NOT NULL,
     sucu_FechaCreacion					DATETIME NOT NULL DEFAULT GETDATE(),
-    sucu_UsuarioCreacion				    INT not null,
+    sucu_UsuarioCreacion				INT not null,
     sucu_FechaModificacion				DATETIME,
-    sucu_UsuarioModificacion			    INT,
+    sucu_UsuarioModificacion			INT,
     sucu_Estado							BIT NOT NULL DEFAULT 1,
     CONSTRAINT PK_salo_tbSucursales_sucu_Id PRIMARY KEY(sucu_Id),
     CONSTRAINT FK_salo_tbSucursales_gnrl_tbMunicipios_muni_Id FOREIGN KEY(muni_Id) REFERENCES gnrl.tbMunicipios(muni_Id),
@@ -275,16 +275,16 @@ CREATE TABLE salo.tbSucursales(
 );
 
 CREATE TABLE salo.tbReservaciones(
-rese_Id                              INT IDENTITY(1,1),
-clie_Id                              INT NOT NULL,
-sucu_Id                              INT NOT NULL,
-rese_DiaReservado                    DATE NOT NULL,
-rese_HoraInicio                      TIME NOT NULL,
-rese_HoraFin                         TIME NOT NULL,
+rese_Id                             INT IDENTITY(1,1),
+clie_Id                             INT NOT NULL,
+sucu_Id                             INT NOT NULL,
+rese_DiaReservado                   DATE NOT NULL,
+rese_HoraInicio                     TIME NOT NULL,
+rese_HoraFin                        TIME NOT NULL,
 rese_FechaCreacion					DATETIME NOT NULL DEFAULT GETDATE(),
-rese_UsuarioCreacion				    INT not null,
+rese_UsuarioCreacion				INT not null,
 rese_FechaModificacion				DATETIME,
-rese_UsuarioModificacion			    INT,
+rese_UsuarioModificacion			INT,
 rese_Estado							BIT NOT NULL DEFAULT 1,
 
 CONSTRAINT PK_salo_tbReservaciones_rese_Id PRIMARY KEY(rese_Id),
@@ -296,13 +296,13 @@ CONSTRAINT FK_salo_tbReservaciones_acce_tbUsuarios_rese_UsuarioModificacion_usur
 
 
 CREATE TABLE salo.tbProductosXServicio(
-    serprod_Id                       INT IDENTITY(1,1),
-    serv_Id                          INT,
-    prod_Id                          INT,
+    serprod_Id                      INT IDENTITY(1,1),
+    serv_Id                         INT,
+    prod_Id                         INT,
     serprod_FechaCreacion			DATETIME NOT NULL DEFAULT GETDATE(),
     serprod_UsuarioCreacion		    INT not null,
     serprod_FechaModificacion		DATETIME,
-    serprod_UsuarioModificacion      INT,
+    serprod_UsuarioModificacion     INT,
     serprod_Estado				    BIT NOT NULL DEFAULT 1,
 
     CONSTRAINT PK_salo_tbProductosXServicio_serprod_Id PRIMARY KEY(serprod_Id),
@@ -544,22 +544,22 @@ BEGIN
 
         BEGIN TRY
         Declare @Password Nvarchar(max) = (HASHBYTES('SHA2_512',@usur_Contrasenia))
-        SELECT [usur_Id]
-            ,[usur_Usuario]
-            ,[usur_Contrasenia]
-            ,T1.[empl_Id]
-            ,t2.empl_Nombre + ' ' + t2.empl_Apellido as empl_Nombre 
-            ,[usur_UsuarioCreacion]
-            ,[usur_FechaCreacion]
-            ,[usur_UsuarioModificacion]
-            ,[usur_FechaModificacion]
-            ,[usur_Estado]
-        FROM [tbUsuarios] T1 INNER JOIN [salo].[tbEmpleados] T2
-        ON T1.empl_Id = T2.empl_Id
-        WHERE t1.usur_Contrasenia = @Password 
-        AND t1.usur_Usuario = @usur_Usuario
+        SELECT  [usur_Id]
+                ,[usur_Usuario]
+                ,[usur_Contrasenia]
+                ,T1.[empl_Id]
+                ,t2.empl_Nombre + ' ' + t2.empl_Apellido as empl_Nombre 
+                ,[usur_UsuarioCreacion]
+                ,[usur_FechaCreacion]
+                ,[usur_UsuarioModificacion]
+                ,[usur_FechaModificacion]
+                ,[usur_Estado]
+        FROM    [tbUsuarios] T1 INNER JOIN [salo].[tbEmpleados] T2
+        ON      T1.empl_Id = T2.empl_Id
+        WHERE   t1.usur_Contrasenia = @Password 
+        AND     t1.usur_Usuario = @usur_Usuario
 
-        SELECT 1 as Proceso
+        --SELECT 1 as Proceso
         END TRY
         BEGIN CATCH
 
@@ -723,15 +723,15 @@ INSERT INTO tbClientes( [clie_Nombre],
                             [clie_FechaModificacion], 
                             [clie_UsuarioModificacion], 
                             [clie_Estado])
-    VALUES (                @clie_Nombre, 
-                            @clie_Apellido, 
-                            @clie_Telefono, 
-                            @clie_CorreoElectronico, 
-                            GETDATE(), 
-                            @clie_UsuarioCreacion, 
-                            NULL,  
-                            NULL, 
-                            1)
+    VALUES (    @clie_Nombre, 
+                @clie_Apellido, 
+                @clie_Telefono, 
+                @clie_CorreoElectronico, 
+                GETDATE(), 
+                @clie_UsuarioCreacion, 
+                NULL,  
+                NULL, 
+                1)
 
 SELECT 1 as Proceso
 END TRY
