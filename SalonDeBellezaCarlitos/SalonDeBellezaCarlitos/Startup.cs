@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SalonDeBellezaCarlitos.BusinessLogic;
+using SalonDeBellezaCarlitos.WebUI.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +25,10 @@ namespace SalonDeBellezaCarlitos
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.DataAccess(Configuration.GetConnectionString("SalonCarlitosConn"));
+            services.BusinessLogic();
+            services.AddAutoMapper(x => x.AddProfile<MappingProfileExtensions>(), AppDomain.CurrentDomain.GetAssemblies());
+
             services.AddControllersWithViews();
         }
 

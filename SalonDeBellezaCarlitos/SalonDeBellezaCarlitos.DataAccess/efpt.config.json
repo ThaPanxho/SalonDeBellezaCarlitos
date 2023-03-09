@@ -1,0 +1,101 @@
+﻿{
+   "CodeGenerationMode": 0,
+   "ContextClassName": "SalondebellezacarlitosContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": null,
+   "OutputPath": "Context",
+   "ProjectRootNamespace": "SalonDeBellezaCarlitos.DataAccess",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 1,
+   "Tables": [
+      {
+         "Name": "[acce].[tbUsuarios]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[gnrl].[tbDepartamentos]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[gnrl].[tbEstadosCiviles]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[gnrl].[tbMetodoPago]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[gnrl].[tbMunicipios]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[salo].[tbCargos]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[salo].[tbCategorias]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[salo].[tbClientes]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[salo].[tbEmpleados]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[salo].[tbFacturas]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[salo].[tbFacturasDetalles]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[salo].[tbProductos]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[salo].[tbProductosXServicio]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[salo].[tbProveedores]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[salo].[tbReservaciones]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[salo].[tbServicios]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[salo].[tbSucursales]",
+         "ObjectType": 0
+      }
+   ],
+   "UiHint": "DESKTOP-383CMQ3\\MSSQLSERVERLOCAL.SalonDeBellezaCarlitos",
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": true,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseInflector": false,
+   "UseLegacyPluralizer": false,
+   "UseNoConstructor": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSchemaFolders": false,
+   "UseSpatial": false
+}

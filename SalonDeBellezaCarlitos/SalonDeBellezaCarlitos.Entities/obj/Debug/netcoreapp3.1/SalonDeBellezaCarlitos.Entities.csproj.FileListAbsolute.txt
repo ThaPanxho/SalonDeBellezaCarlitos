@@ -1,0 +1,10 @@
+C:\Users\LAB01\Documents\GitHub\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos.Entities\bin\Debug\netcoreapp3.1\SalonDeBellezaCarlitos.Entities.deps.json
+C:\Users\LAB01\Documents\GitHub\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos.Entities\bin\Debug\netcoreapp3.1\SalonDeBellezaCarlitos.Entities.dll
+C:\Users\LAB01\Documents\GitHub\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos.Entities\bin\Debug\netcoreapp3.1\SalonDeBellezaCarlitos.Entities.pdb
+C:\Users\LAB01\Documents\GitHub\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos.Entities\obj\Debug\netcoreapp3.1\SalonDeBellezaCarlitos.Entities.csproj.AssemblyReference.cache
+C:\Users\LAB01\Documents\GitHub\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos.Entities\obj\Debug\netcoreapp3.1\SalonDeBellezaCarlitos.Entities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\LAB01\Documents\GitHub\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos.Entities\obj\Debug\netcoreapp3.1\SalonDeBellezaCarlitos.Entities.AssemblyInfoInputs.cache
+C:\Users\LAB01\Documents\GitHub\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos.Entities\obj\Debug\netcoreapp3.1\SalonDeBellezaCarlitos.Entities.AssemblyInfo.cs
+C:\Users\LAB01\Documents\GitHub\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos.Entities\obj\Debug\netcoreapp3.1\SalonDeBellezaCarlitos.Entities.csproj.CoreCompileInputs.cache
+C:\Users\LAB01\Documents\GitHub\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos.Entities\obj\Debug\netcoreapp3.1\SalonDeBellezaCarlitos.Entities.dll
+C:\Users\LAB01\Documents\GitHub\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos.Entities\obj\Debug\netcoreapp3.1\SalonDeBellezaCarlitos.Entities.pdb
