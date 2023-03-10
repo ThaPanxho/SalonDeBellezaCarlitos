@@ -13,6 +13,7 @@ namespace SalonDeBellezaCarlitos.WebUI.Extensions
         public MappingProfileExtensions()
         {
             CreateMap<CargoViewModel, tbCargos>().ReverseMap();
+            CreateMap<EmpleadoViewModel, tbEmpleados>().ReverseMap();
         }
     }
 }

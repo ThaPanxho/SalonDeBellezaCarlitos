@@ -802,6 +802,44 @@ END
 
 
 --Procedimientos almacenados de Empleados
+GO
+CREATE OR ALTER PROCEDURE salo.UDP_tbEmpleados_Listado
+AS
+BEGIN
+
+SELECT	empl_Id, 
+		empl_Nombre, 
+		empl_Apellido, 
+		empl_Sexo, 
+		T1.muni_Id, 
+		T2.muni_Codigo,
+		T2.muni_Descripcion,
+		T3.depa_Codigo,
+		T3.depa_Descripcion,
+		T3.depa_Id,
+		empl_DireccionExacta, 
+		T1.estc_Id,
+		T4.estc_Descripcion,
+		empl_Telefono, 
+		empl_CorreoElectronico, 
+		empl_FechaNacimiento, 
+		empl_FechaContratacion, 
+		T1.carg_Id,
+		T5.carg_Descripcion,
+		empl_FechaCreacion, 
+		empl_UsuarioCreacion, 
+		empl_FechaModificacion, 
+		empl_UsuarioModificacion, 
+		empl_Estado
+FROM salo.tbEmpleados T1 INNER JOIN gnrl.tbMunicipios T2 
+ON t1.muni_Id = t2.muni_Id INNER JOIN gnrl.tbDepartamentos T3
+ON T3.depa_Id = t2.depa_Id INNER JOIN gnrl.tbEstadosCiviles T4
+ON T4.estc_Id = T1.estc_Id INNER JOIN salo.tbCargos T5
+ON t5.carg_Id = t1.carg_Id
+WHERE empl_Estado = 1
+
+END
+
 
 
 GO
@@ -870,7 +908,7 @@ END CATCH
 END
 GO
 
-
+EXEC salo.UDP_tbEmpleados_Insert 'Francis','Antunez','M','1','Gainasd','2','885996123','','10-10-2000','10-10-2022','1','1'
 
 GO
 CREATE OR ALTER PROCEDURE salo.UDP_tbEmpleados_Update
@@ -1024,6 +1062,25 @@ GO
 
 --Procedimientos almacenados de Cargos
 
+CREATE OR ALTER PROCEDURE salo.UDP_tbCargos_Listado
+AS
+BEGIN
+
+SELECT	carg_Id, 
+		carg_Descripcion, 
+		carg_FechaCreacion, 
+		carg_UsuarioCreacion, 
+		carg_FechaModificacion, 
+		carg_UsuarioModificacion, 
+		carg_Estado
+FROM salo.tbCargos
+WHERE carg_Estado = 1
+
+
+END
+GO
+
+GO
 CREATE OR ALTER PROCEDURE salo.UDP_tbCargos_Insert
 	@carg_Descripcion Nvarchar(150),
 	@carg_UsuarioCreacion int
@@ -1056,7 +1113,7 @@ END CATCH
 
 END
 GO
-
+EXEC salo.UDP_tbCargos_Insert 'lupa', 1
 GO
 CREATE OR ALTER PROCEDURE salo.UDP_tbCargos_Update
 	@carg_Id INT,
@@ -2131,3 +2188,4 @@ SELECT 0 as Proceso
 END CATCH
 END
 GO
+

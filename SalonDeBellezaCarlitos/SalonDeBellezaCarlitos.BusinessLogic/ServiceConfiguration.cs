@@ -15,6 +15,7 @@ namespace SalonDeBellezaCarlitos.BusinessLogic
         public static void DataAccess(this IServiceCollection service, string connectionString) 
         {
             service.AddScoped<CargoRepository>();
+            service.AddScoped<EmpleadoRepository>();
 
             
             SalonCarlitosContext.BuildConnectionString(connectionString);

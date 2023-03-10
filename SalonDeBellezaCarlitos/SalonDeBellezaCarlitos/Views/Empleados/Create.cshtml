@@ -1,0 +1,78 @@
+﻿@model SalonDeBellezaCarlitos.WebUI.Models.EmpleadoViewModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>tbEmpleados</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="empl_Nombre" class="control-label"></label>
+                <input asp-for="empl_Nombre" class="form-control" />
+                <span asp-validation-for="empl_Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="empl_Apellido" class="control-label"></label>
+                <input asp-for="empl_Apellido" class="form-control" />
+                <span asp-validation-for="empl_Apellido" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="empl_Sexo" class="control-label"></label>
+                <input asp-for="empl_Sexo" class="form-control" />
+                <span asp-validation-for="empl_Sexo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="muni_Id" class="control-label"></label>
+                <input asp-for="muni_Id" class ="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="empl_DireccionExacta" class="control-label"></label>
+                <input asp-for="empl_DireccionExacta" class="form-control" />
+                <span asp-validation-for="empl_DireccionExacta" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="estc_Id" class="control-label"></label>
+                <input asp-for="estc_Id" class ="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="empl_Telefono" class="control-label"></label>
+                <input asp-for="empl_Telefono" class="form-control" />
+                <span asp-validation-for="empl_Telefono" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="empl_CorreoElectronico" class="control-label"></label>
+                <input asp-for="empl_CorreoElectronico" class="form-control" />
+                <span asp-validation-for="empl_CorreoElectronico" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="empl_FechaNacimiento" class="control-label"></label>
+                <input asp-for="empl_FechaNacimiento" class="form-control" />
+                <span asp-validation-for="empl_FechaNacimiento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="empl_FechaContratacion" class="control-label"></label>
+                <input asp-for="empl_FechaContratacion" class="form-control" />
+                <span asp-validation-for="empl_FechaContratacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="carg_Id" class="control-label"></label>
+                <input asp-for="carg_Id" class ="form-control"/>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
