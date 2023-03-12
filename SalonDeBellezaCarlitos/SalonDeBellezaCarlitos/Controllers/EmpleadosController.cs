@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using SalonDeBellezaCarlitos.BusinessLogic.Services;
+using SalonDeBellezaCarlitos.DataAccess;
 using SalonDeBellezaCarlitos.Entities.Entities;
 using SalonDeBellezaCarlitos.WebUI.Models;
 using System;
@@ -10,6 +12,8 @@ using System.Threading.Tasks;
 
 namespace SalonDeBellezaCarlitos.WebUI.Controllers
 {
+
+    
     public class EmpleadosController : Controller
     {
 
@@ -29,8 +33,9 @@ namespace SalonDeBellezaCarlitos.WebUI.Controllers
         public IActionResult Index()
         {
             var listado = _generalesService.ListadoEmpleados(out string error);
+            
             var listadoMapeado = _mapper.Map<IEnumerable<EmpleadoViewModel>>(listado);
-
+           
             if (string.IsNullOrEmpty(error))
             {
                 ModelState.AddModelError("", error);
@@ -44,6 +49,9 @@ namespace SalonDeBellezaCarlitos.WebUI.Controllers
         [HttpGet("/Empleados/Crear")]
         public IActionResult Create()
         {
+            
+            var CargosList = _generalesService.ListadoCargos(out string error).ToList();
+            ViewBag.carg_Id = new SelectList(CargosList, "carg_Id", "carg_Descripcion");
             return View();
         }
 

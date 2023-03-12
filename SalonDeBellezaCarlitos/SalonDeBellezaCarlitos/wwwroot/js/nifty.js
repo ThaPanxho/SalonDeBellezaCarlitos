@@ -155,28 +155,28 @@ const updateNav = () => {
 
 
 
-// Cache component variables to the toggler.
-const addVariables = (el) => {
-	const miniNavContentTarget = el.parentElement.querySelector( ".mininav-content" );
+//// Cache component variables to the toggler.
+//const addVariables = (el) => {
+//	const miniNavContentTarget = el.parentElement.querySelector( ".mininav-content" );
 
-	el._mainnav = {
-		target   : miniNavContentTarget,
-		islink   : el.parentElement.classList.contains( "has-sub" ),
-		collapse : function () {
-			for ( let target of miniNavContentsCollapse ) {
-				if ( target._element === miniNavContentTarget ) {
-					return target;
-					break;
-				}
-			}
-		}()
-	};
+//	el._mainnav = {
+//		target   : miniNavContentTarget,
+//		islink   : el.parentElement.classList.contains( "has-sub" ),
+//		collapse : function () {
+//			for ( let target of miniNavContentsCollapse ) {
+//				if ( target._element === miniNavContentTarget ) {
+//					return target;
+//					break;
+//				}
+//			}
+//		}()
+//	};
 
 
-	el._mainnav.target.toggler = el;
-	el._mainnav.target.addEventListener( "show.bs.collapse", bsCollapseShow );
-	el._mainnav.target.addEventListener( "shown.bs.collapse", bsCollapseShow );
-}
+//	el._mainnav.target.toggler = el;
+//	el._mainnav.target.addEventListener( "show.bs.collapse", bsCollapseShow );
+//	el._mainnav.target.addEventListener( "shown.bs.collapse", bsCollapseShow );
+//}
 
 
 
@@ -246,42 +246,42 @@ const buildNav = () => {
     if ( activeSub ) activeSub.classList.add("show");
 
 
-	miniNavTogglers.map( ( miniNavToggler ) => {
+	//miniNavTogglers.map( ( miniNavToggler ) => {
 
-		if ( !miniNavToggler._mainnav ) addVariables( miniNavToggler );
-		miniNavToggler.classList.add( "collapsed" );
-
-
-		if ( !isMiniNav || window.innerWidth < 992 ) {
-
-			miniNavToggler.addEventListener( "click", toggleContent );
-            [ "mouseenter", "touchend"].forEach( evt => miniNavToggler.removeEventListener( evt, toggleContent ));
-
-			if( miniNavToggler._mainnav.target.popper != null ) {
-				miniNavToggler._mainnav.target.popper.setOptions({
-					scroll: false,
-					resize: false
-				});
-				miniNavToggler._mainnav.target.popper.destroy();
-			}
-
-			miniNavToggler._mainnav.target.addEventListener( "hide.bs.collapse", bsCollapseHide );
-
-		} else {
-
-            // Hide all submenus
-	        miniNavContentsCollapse.map( async sm => sm.hide() );
+	//	if ( !miniNavToggler._mainnav ) addVariables( miniNavToggler );
+	//	miniNavToggler.classList.add( "collapsed" );
 
 
-		 	miniNavToggler._mainnav.target.popper = Popper.createPopper( miniNavToggler, miniNavToggler._mainnav.target, popperOptions);
-			miniNavToggler.removeEventListener( "click", toggleContent );
-            [ "mouseenter", "touchend"].forEach( evt => miniNavToggler.addEventListener( evt, toggleContent ));
+	//	if ( !isMiniNav || window.innerWidth < 992 ) {
+
+	//		miniNavToggler.addEventListener( "click", toggleContent );
+ //           [ "mouseenter", "touchend"].forEach( evt => miniNavToggler.removeEventListener( evt, toggleContent ));
+
+	//		if( miniNavToggler._mainnav.target.popper != null ) {
+	//			miniNavToggler._mainnav.target.popper.setOptions({
+	//				scroll: false,
+	//				resize: false
+	//			});
+	//			miniNavToggler._mainnav.target.popper.destroy();
+	//		}
+
+	//		miniNavToggler._mainnav.target.addEventListener( "hide.bs.collapse", bsCollapseHide );
+
+	//	} else {
+
+ //           // Hide all submenus
+	//        miniNavContentsCollapse.map( async sm => sm.hide() );
 
 
-			// Hide all submenus when clicked outside of the main menu.
-			miniNavToggler._mainnav.target.removeEventListener( "hide.bs.collapse", bsCollapseHide );
-		}
-	});
+	//	 	miniNavToggler._mainnav.target.popper = Popper.createPopper( miniNavToggler, miniNavToggler._mainnav.target, popperOptions);
+	//		miniNavToggler.removeEventListener( "click", toggleContent );
+ //           [ "mouseenter", "touchend"].forEach( evt => miniNavToggler.addEventListener( evt, toggleContent ));
+
+
+	//		// Hide all submenus when clicked outside of the main menu.
+	//		miniNavToggler._mainnav.target.removeEventListener( "hide.bs.collapse", bsCollapseHide );
+	//	}
+	//});
 };
 
 

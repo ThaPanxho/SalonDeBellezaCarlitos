@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Globalization;
 
 namespace SalonDeBellezaCarlitos.DataAccess.Repository
 {
@@ -29,8 +30,13 @@ namespace SalonDeBellezaCarlitos.DataAccess.Repository
 
             var parametros = new DynamicParameters();
 
-            string fechaNacimineto = item.empl_FechaNacimiento.ToString().Replace("/", "-").Remove(10);
-            string fechaContratacion = item.empl_FechaContratacion.ToString().Replace("/", "-").Remove(10);
+            string fechaNacimientostring = item.empl_FechaNacimiento.ToString().Replace("/", "-").Replace("00:00:00", "");
+            string fechaContratacionstring = item.empl_FechaContratacion.ToString().Replace("/", "-").Replace("00:00:00", "");
+            DateTime fechaNacimineto = Convert.ToDateTime(fechaNacimientostring);
+            DateTime fechaContratacion = Convert.ToDateTime(fechaContratacionstring);
+            string FN = fechaNacimineto.ToString("yyyy-MM-dd");
+            string FC = fechaContratacion.ToString("yyyy-MM-dd");
+
 
             parametros.Add("@empl_Nombre", item.empl_Nombre, DbType.String, ParameterDirection.Input);
             parametros.Add("@empl_Apellido", item.empl_Apellido, DbType.String, ParameterDirection.Input);
@@ -40,8 +46,8 @@ namespace SalonDeBellezaCarlitos.DataAccess.Repository
             parametros.Add("@estc_Id", item.estc_Id, DbType.Int32, ParameterDirection.Input);
             parametros.Add("@empl_Telefono", item.empl_Telefono, DbType.String, ParameterDirection.Input);
             parametros.Add("@empl_CorreoElectronico", item.empl_CorreoElectronico, DbType.String, ParameterDirection.Input);
-            parametros.Add("@empl_FechaNacimiento", fechaNacimineto, DbType.String, ParameterDirection.Input);
-            parametros.Add("@empl_FechaContratacion", fechaContratacion, DbType.String, ParameterDirection.Input);
+            parametros.Add("@empl_FechaNacimiento", FN, DbType.String, ParameterDirection.Input);
+            parametros.Add("@empl_FechaContratacion", FC.ToString(), DbType.String, ParameterDirection.Input);
             parametros.Add("@carg_Id", item.carg_Id, DbType.Int32, ParameterDirection.Input);
             parametros.Add("@empl_UsuarioCreacion", 1, DbType.Int32, ParameterDirection.Input);
 

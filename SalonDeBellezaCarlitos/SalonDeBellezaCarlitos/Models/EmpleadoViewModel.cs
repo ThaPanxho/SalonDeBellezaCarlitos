@@ -32,7 +32,6 @@ namespace SalonDeBellezaCarlitos.WebUI.Models
         [Required(ErrorMessage = "El campo {0} es necesario!")]
         public string empl_Telefono { get; set; }
         [Display(Name = "Email")]
-        [Required(ErrorMessage = "El campo {0} es necesario!")]
         public string empl_CorreoElectronico { get; set; }
         [Display(Name = "Fecha de Nacimineto")]
         public DateTime empl_FechaNacimiento { get; set; }

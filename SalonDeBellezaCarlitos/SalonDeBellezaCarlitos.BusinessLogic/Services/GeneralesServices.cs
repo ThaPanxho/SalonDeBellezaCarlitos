@@ -11,11 +11,19 @@ namespace SalonDeBellezaCarlitos.BusinessLogic.Services
     {
         private readonly CargoRepository _CargoRepository;
         private readonly EmpleadoRepository _EmpleadoRepository;
+        private readonly UsuarioRepository _UsuariosRepository;
+        private readonly ServicioRepository _ServicioRepository;
 
-        public GeneralesServices(CargoRepository CargoRepository, EmpleadoRepository EmpleadoRepository) 
+        public GeneralesServices(   CargoRepository CargoRepository, 
+                                    EmpleadoRepository EmpleadoRepository, 
+                                    UsuarioRepository usuarioRepository,
+                                    ServicioRepository servicioRepository
+            ) 
         {
             _CargoRepository = CargoRepository;
             _EmpleadoRepository = EmpleadoRepository;
+            _UsuariosRepository = usuarioRepository;
+            _ServicioRepository = servicioRepository;
         }
 
         #region Cargos
@@ -52,6 +60,7 @@ namespace SalonDeBellezaCarlitos.BusinessLogic.Services
 
 
         #endregion
+
         #region Empleados
 
 
@@ -85,6 +94,43 @@ namespace SalonDeBellezaCarlitos.BusinessLogic.Services
 
         }
 
+
+        #endregion
+
+        #region Usuarios
+
+        public IEnumerable<tbUsuarios> ListadoUsuarios(out string error)
+        {
+            error = string.Empty;
+            try
+            {
+                return _UsuariosRepository.List();
+            }
+            catch (Exception e)
+            {
+                error = e.Message;
+                return Enumerable.Empty<tbUsuarios>();
+            }
+        }
+
+        #endregion
+
+
+        #region Servicios
+
+        public IEnumerable<tbServicios> ListadoServicios(out string error)
+        {
+            error = string.Empty;
+            try
+            {
+                return _ServicioRepository.List();
+            }
+            catch (Exception e)
+            {
+                error = e.Message;
+                return Enumerable.Empty<tbServicios>();
+            }
+        }
 
         #endregion
 

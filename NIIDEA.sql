@@ -607,7 +607,28 @@ GO
 
 
 -----Procedimientos almacenados de tbUsuarios
+GO
+CREATE OR ALTER PROCEDURE acce.UDP_tbUsuarios_Listado
+AS
+BEGIN
 
+        SELECT	 [usur_Id]
+                ,[usur_Usuario]
+                ,[usur_Contrasenia]
+                ,T1.[empl_Id]
+                ,t2.empl_Nombre + ' ' + t2.empl_Apellido as empl_NombreCompleto 
+				,t2.empl_Nombre
+				,t2.empl_Apellido
+                ,[usur_UsuarioCreacion]
+                ,[usur_FechaCreacion]
+                ,[usur_UsuarioModificacion]
+                ,[usur_FechaModificacion]
+                ,[usur_Estado]
+        FROM    acce.[tbUsuarios] T1 INNER JOIN [salo].[tbEmpleados] T2
+        ON      T1.empl_Id = T2.empl_Id
+
+
+END
 
 GO
 CREATE OR ALTER PROCEDURE acce.UDP_tbUsuarios_Insert
@@ -706,9 +727,29 @@ GO
 
 
 --Procecdimiento alamacenados de Clientes
+GO
+CREATE OR ALTER PROCEDURE salo.UDP_tbClientes_Listado
+AS
+BEGIN
+
+SELECT [clie_Id]
+      ,[clie_Nombre]
+      ,[clie_Apellido]
+      ,[clie_Telefono]
+      ,[clie_CorreoElectronico]
+      ,[clie_FechaCreacion]
+      ,[clie_UsuarioCreacion]
+      ,[clie_FechaModificacion]
+      ,[clie_UsuarioModificacion]
+      ,[clie_Estado]
+  FROM [salo].[tbClientes]
+  WHERE clie_Estado = 1
+
+END
 
 GO
-CREATE PROCEDURE salo.UDP_tbClientes_Insert
+GO
+CREATE OR ALTER PROCEDURE salo.UDP_tbClientes_Insert
     @clie_Nombre NVARCHAR(100),
     @clie_Apellido NVARCHAR(100),
     @clie_Telefono NVARCHAR(20),
@@ -977,7 +1018,25 @@ END
 GO
 
 --Procedimientos almacenados de categorias
+GO
+CREATE OR ALTER PROCEDURE salo.UDP_tbCategorias_Listado
+AS
+BEGIN
 
+
+SELECT [cate_Id]
+      ,[cate_Descripcion]
+      ,[cate_FechaCreacion]
+      ,[cate_UsuarioCreacion]
+      ,[cate_FechaModificacion]
+      ,[cate_UsuarioModificacion]
+      ,[cate_Estado]
+  FROM [salo].[tbCategorias]
+  WHERE cate_Estado = 1
+
+END
+
+GO
 GO
 CREATE OR ALTER PROCEDURE salo.UDP_tbCategorias_Insert
 	@cate_Descripcion Nvarchar(150),
@@ -1062,22 +1121,23 @@ GO
 
 --Procedimientos almacenados de Cargos
 
+GO
 CREATE OR ALTER PROCEDURE salo.UDP_tbCargos_Listado
 AS
 BEGIN
 
-SELECT	carg_Id, 
-		carg_Descripcion, 
-		carg_FechaCreacion, 
-		carg_UsuarioCreacion, 
-		carg_FechaModificacion, 
-		carg_UsuarioModificacion, 
-		carg_Estado
-FROM salo.tbCargos
-WHERE carg_Estado = 1
-
+SELECT [carg_Id]
+      ,[carg_Descripcion]
+      ,[carg_FechaCreacion]
+      ,[carg_UsuarioCreacion]
+      ,[carg_FechaModificacion]
+      ,[carg_UsuarioModificacion]
+      ,[carg_Estado]
+  FROM [salo].[tbCargos]
+  WHERE carg_Estado = 1
 
 END
+
 GO
 
 GO
@@ -1157,6 +1217,28 @@ GO
 
 
 --Procedimientos Almacenados de Servicios
+
+GO
+CREATE OR ALTER PROCEDURE salo.UDP_tbServicios_Listado
+AS
+BEGIN
+
+SELECT [serv_Id]
+      ,[serv_Nombre]
+      ,[serv_Descripcion]
+      ,[serv_Precio]
+      ,[serv_FechaCreacion]
+      ,[serv_UsuarioCreacion]
+      ,[serv_FechaModificacion]
+      ,[serv_UsuarioModificacion]
+      ,[serv_Estado]
+  FROM [salo].[tbServicios]
+  WHERE serv_Estado = 1
+
+END
+
+GO
+
 
 CREATE OR ALTER PROCEDURE salo.UDP_tbServicios_Insert
 	@serv_Nombre Nvarchar(150),
@@ -1248,6 +1330,37 @@ END
 GO
 
 --Procedimientos almacenados de Productos
+GO
+CREATE OR ALTER PROCEDURE salo.UDP_tbProductos_Listado
+AS
+BEGIN
+
+
+SELECT [prod_Id]
+      ,[prod_Nombre]
+      ,[prod_Precio]
+      ,T1.[cate_Id]
+	  ,T2.cate_Descripcion
+      ,[prod_Stock]
+      ,T1.[prov_id]
+	  ,T3.prov_NombreEmpresa
+      ,[prod_FechaCreacion]
+      ,[prod_UsuarioCreacion]
+      ,[prod_FechaModificacion]
+      ,[prod_UsuarioModificacion]
+      ,[prod_Estado]
+  FROM [salo].[tbProductos] T1 INNER JOIN salo.tbCategorias T2
+  ON t1.cate_Id = T2.cate_Id INNER JOIN salo.tbProveedores T3
+  ON T3.prov_Id = T1.prov_id
+  WHERE prod_Estado = 1
+
+
+END
+
+GO
+
+
+
 GO
 CREATE OR ALTER PROCEDURE salo.UDP_tbProductos_Insert
     @prod_Nombre NVARCHAR(200),
@@ -1346,6 +1459,37 @@ GO
 
 --Procedimientos Almacenados de Sucursales
 
+GO
+CREATE OR ALTER PROCEDURE salo.UDP_tbSucursales_Listado
+AS
+BEGIN
+
+
+SELECT [sucu_Id]
+      ,[sucu_Descripcion]
+      ,T1.[muni_Id]
+	  ,T2.muni_Codigo
+	  ,T2.muni_Descripcion
+	  ,T3.depa_Id
+	  ,T3.depa_Codigo
+	  ,T3.depa_Descripcion
+      ,[sucu_DireccionExacta]
+      ,[sucu_FechaCreacion]
+      ,[sucu_UsuarioCreacion]
+      ,[sucu_FechaModificacion]
+      ,[sucu_UsuarioModificacion]
+      ,[sucu_Estado]
+  FROM [salo].[tbSucursales] T1 INNER JOIN gnrl.tbMunicipios T2
+  ON T1.muni_Id = T2.muni_Id INNER JOIN gnrl.tbDepartamentos T3
+  ON T3.depa_Id = T2.depa_Id
+  WHERE sucu_Estado = 1
+
+END
+
+GO
+
+
+
 CREATE OR ALTER PROCEDURE salo.UDP_tbSucursales_Insert
 @sucu_Decripcion        NVARCHAR(200),
 @muni_Id                INT,
@@ -1424,6 +1568,38 @@ END CATCH
 END
 GO
 --Procedimientos Alemacenados Reservaciones
+
+GO
+CREATE OR ALTER PROCEDURE salo.UDP_tbReservaciones_Listado
+AS
+BEGIN
+
+
+SELECT [rese_Id]
+      ,T1.[clie_Id]
+	  ,T2.clie_Nombre
+	  ,T2.clie_Apellido
+	  ,T2.clie_Telefono
+      ,T1.[sucu_Id]
+	  ,T3.sucu_Descripcion
+	  ,T3.sucu_DireccionExacta
+      ,[rese_DiaReservado]
+      ,[rese_HoraInicio]
+      ,[rese_HoraFin]
+      ,[rese_FechaCreacion]
+      ,[rese_UsuarioCreacion]
+      ,[rese_FechaModificacion]
+      ,[rese_UsuarioModificacion]
+      ,[rese_Estado]
+  FROM [salo].[tbReservaciones] T1 INNER JOIN salo.tbClientes T2
+  ON t1.clie_Id = T2.clie_Id INNER JOIN salo.tbSucursales T3
+  ON t3.sucu_Id = T1.sucu_Id
+  WHERE rese_Estado = 1
+
+END
+
+GO
+
 GO
 CREATE OR ALTER PROCEDURE salo.UDP_tbReservaciones_Insert
 @clie_Id				INT,
@@ -1522,6 +1698,27 @@ GO
 
 -----------Procedimiento Insert MetodoPago
 GO
+
+
+GO
+CREATE OR ALTER PROCEDURE gnrl.UDP_tbMetodoPago_Listado
+AS
+BEGIN
+
+SELECT [metp_Id]
+      ,[metp_Descripcion]
+      ,[metp_FechaCreacion]
+      ,[metp_UsuarioCreacion]
+      ,[metp_FechaModificacion]
+      ,[metp_UsuarioModificacion]
+      ,[metp_Estado]
+  FROM [gnrl].[tbMetodoPago]
+  WHERE metp_Estado = 1
+END
+
+GO
+
+
 CREATE PROCEDURE gnrl.UDP_tbMetodoPago_Insert
 (
     @metp_Descripcion             NVARCHAR (100),
@@ -1600,6 +1797,26 @@ END
 GO
 
 -----------Procedimiento Insert EstadoCiviles
+GO
+CREATE OR ALTER PROCEDURE gnrl.UDP_tbEstadoCiviles_Listado
+AS
+BEGIN
+
+SELECT [estc_Id]
+      ,[estc_Descripcion]
+      ,[estc_FechaCreacion]
+      ,[estc_UsuarioCreacion]
+      ,[estc_FechaModificacion]
+      ,[estc_UsuarioModificacion]
+      ,[estc_Estado]
+  FROM [gnrl].[tbEstadosCiviles]
+  WHERE estc_Estado = 1 
+
+END
+
+GO
+
+
 CREATE OR ALTER  PROCEDURE gnrl.UDP_tbEstadoCiviles_Insert
 @estc_Id  INT,
 @estc_Descripcion Varchar(200),
@@ -1685,6 +1902,30 @@ GO
 
 -----------Procedimiento Insert Departamentos
 GO
+
+GO
+CREATE OR ALTER PROCEDURE gnrl.UDP_tbDepartamentos_Listado
+AS
+BEGIN
+
+
+SELECT [depa_Id]
+      ,[depa_Descripcion]
+      ,[depa_Codigo]
+      ,[depa_FechaCreacion]
+      ,[depa_UsuarioCreacion]
+      ,[depa_FechaModificacion]
+      ,[depa_UsuarioModificacion]
+      ,[depa_Estado]
+  FROM [gnrl].[tbDepartamentos]
+  WHERE depa_Estado = 1
+
+
+END
+
+GO
+
+
 CREATE OR ALTER PROCEDURE gnrl.UDP_tbDepartamentos_Insert
     @depa_Id NVARCHAR(4),
     @depa_Descripcion NVARCHAR(150),
@@ -1769,6 +2010,32 @@ END
 GO
 
 -----------Procedimiento Insert Municipios
+
+GO
+CREATE OR ALTER PROCEDURE gnrl.UDP_tbMunicipios_Listado
+AS
+BEGIN
+
+SELECT [muni_Id]
+      ,[muni_Descripcion]
+      ,[muni_Codigo]
+      ,T1.[depa_Id]
+	  ,T2.depa_Codigo
+	  ,T2.depa_Descripcion
+      ,[muni_FechaCreacion]
+      ,[muni_UsuarioCreacion]
+      ,[muni_FechaModificacion]
+      ,[muni_UsuarioModificacion]
+      ,[muni_Estado]
+  FROM [gnrl].[tbMunicipios] T1 INNER JOIN gnrl.tbDepartamentos T2
+  ON T1.depa_Id = T2.depa_Id
+  WHERE muni_Estado = 1
+
+END
+
+GO
+
+
 Create Procedure gnrl.UDP_tbMunicipios_Insert
 @muni_Id INT,
 @muni_Descripcion Nvarchar(150),
@@ -1861,6 +2128,43 @@ GO
 
 
 --Procedimiento Insert Facturas 
+GO
+CREATE OR ALTER PROCEDURE salo.UDP_salo_tbFacturas_Listado
+AS
+BEGIN
+SELECT [fact_Id]
+      ,T1.[clie_Id]
+	  ,T2.clie_Nombre
+	  ,T2.clie_Apellido
+	  ,T2.clie_Telefono
+      ,[empl_Id_Atendido]
+	  ,ate.empl_Nombre AS NombreAtendido
+	  ,ate.empl_Apellido AS ApellidoAtendido
+	  ,ate.empl_Telefono AS TelefonoAtendido
+      ,[empl_Id_Caja]
+	  ,caja.empl_Nombre	AS NombreCaja
+	  ,caja.empl_Apellido AS ApellidoCaja
+	  ,caja.empl_Telefono AS TelefonoCaja
+      ,T1.[metp_Id]
+	  ,T3.metp_Descripcion
+      ,[fact_Fecha]
+      ,[fact_FechaCreacion]
+      ,[fact_UsuarioCreacion]
+      ,[fact_FechaModificacion]
+      ,[fact_UsuarioModificacion]
+      ,[fact_Estado]
+  FROM [salo].[tbFacturas] T1 INNER JOIN salo.tbClientes T2
+  ON T1.clie_Id = T2.clie_Id INNER JOIN gnrl.tbMetodoPago T3
+  ON T3.metp_Id = T1.metp_Id INNER JOIN salo.tbEmpleados Ate
+  ON Ate.empl_Id = t1.empl_Id_Atendido INNER JOIN salo.tbEmpleados caja
+  ON caja.empl_Id = T1.empl_Id_Caja
+  WHERE T1.fact_Estado = 1
+
+END
+
+GO
+
+
 GO
 CREATE PROCEDURE salo.UDP_salo_tbFacturas_Insert
     @clie_Id                INT,
@@ -1955,7 +2259,30 @@ GO
 
 --Procedimiento Insert FacturasDetalle
 GO
+GO
+CREATE OR ALTER PROCEDURE salo.UDP_salo_FacturaDetalle_Listado
+AS
+BEGIN
 
+SELECT [fade_Id]
+      ,[fact_Id]
+      ,T1.[prod_Id] + T1.[serv_Id] AS Servicio_Producto_ID
+      ,T2.prod_Nombre + T3.serv_Nombre AS Servicio_Producto_Nombre
+	  ,[fade_Cantidad]
+      ,[fade_Precio]
+      ,[fade_FechaCreacion]
+      ,[fade_UsuarioCreacion]
+      ,[fade_FechaModificacion]
+      ,[fade_UsuarioModificacion]
+      ,[fade_Estado]
+  FROM [salo].[tbFacturasDetalles] T1 INNER JOIN salo.tbProductos T2
+  ON t1.prod_Id = T2.prod_Id INNER JOIN salo.tbServicios T3
+  ON t3.serv_Id = T1.serv_Id
+  WHERE fade_Estado = 1
+
+END
+
+GO
 CREATE OR ALTER PROCEDURE salo.UDP_salo_FacturaDetalle_Insert
     @fact_Id                INT,
     @prod_Id                INT,
@@ -2111,7 +2438,28 @@ END
 GO
 
 --Procedimiento Delete ServiciosXProducto
+GO
+GO
+CREATE OR ALTER PROCEDURE salo.UDP_salo_tbServiciosXProducto_Listado
+AS
+BEGIN
 
+SELECT [spro_Id]
+      ,[serv_Id]
+      ,T1.[prod_Id]
+	  ,T2.prod_Nombre
+	  ,T2.prod_Precio
+      ,[spro_FechaCreacion]
+      ,[spro_UsuarioCreacion]
+      ,[spro_FechaModificacion]
+      ,[spro_UsuarioModificacion]
+      ,[spro_Estado]
+  FROM [salo].[tbProductosXServicio] T1 INNER JOIN salo.tbProductos T2
+  ON t1.prod_Id = T2.prod_Id
+  WHERE spro_Estado = 1
+END
+GO
+GO
 CREATE OR ALTER PROCEDURE salo.UDP_salo_tbServiciosXProducto_Insert
     @serv_Id                    INT,
     @prod_Id                    INT,

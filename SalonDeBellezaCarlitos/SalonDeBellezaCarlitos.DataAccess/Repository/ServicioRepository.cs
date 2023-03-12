@@ -1,7 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Dapper;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using SalonDeBellezaCarlitos.Entities.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 
@@ -30,8 +33,8 @@ namespace SalonDeBellezaCarlitos.DataAccess.Repository
 
         public IEnumerable<tbServicios> List()
         {
-            using var db = new SalonCarlitosContext();
-            return db.tbServicios.ToList();
+            using var db = new SqlConnection(SalonCarlitosContext.ConnectionString);
+            return db.Query<tbServicios>(ScriptsDataBase.UDP_Listado_Servicios, null, commandType: CommandType.StoredProcedure);
         }
 
         public int Update(tbServicios item)

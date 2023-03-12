@@ -10,7 +10,7 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
+<table id="example" class="table dataTable compact hover stripe" style="width: 100%;" aria-describedby="example_info">
     <thead>
         <tr>
             <th>
@@ -31,66 +31,37 @@
             <th>
                 @Html.DisplayNameFor(model => model.empl_CorreoElectronico)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.empl_FechaNacimiento)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.empl_FechaContratacion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.empl_FechaCreacion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.empl_FechaModificacion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.empl_Estado)
-            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.empl_Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.empl_Apellido)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.empl_Sexo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.empl_DireccionExacta)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.empl_Telefono)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.empl_CorreoElectronico)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.empl_FechaNacimiento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.empl_FechaContratacion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.empl_FechaCreacion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.empl_FechaModificacion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.empl_Estado)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.empl_Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.empl_Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.empl_Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.empl_Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.empl_Apellido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.empl_Sexo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.empl_DireccionExacta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.empl_Telefono)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.empl_CorreoElectronico)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.empl_Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.empl_Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.empl_Id">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

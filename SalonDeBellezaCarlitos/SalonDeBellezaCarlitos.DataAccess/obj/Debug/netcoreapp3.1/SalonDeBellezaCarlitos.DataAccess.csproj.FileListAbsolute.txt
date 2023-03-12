@@ -11,3 +11,16 @@ C:\Users\LAB01\Documents\GitHub\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos\Sa
 C:\Users\LAB01\Documents\GitHub\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos.DataAccess\obj\Debug\netcoreapp3.1\SalonDeBellezaCarlitos.DataAccess.csproj.CopyComplete
 C:\Users\LAB01\Documents\GitHub\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos.DataAccess\obj\Debug\netcoreapp3.1\SalonDeBellezaCarlitos.DataAccess.dll
 C:\Users\LAB01\Documents\GitHub\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos.DataAccess\obj\Debug\netcoreapp3.1\SalonDeBellezaCarlitos.DataAccess.pdb
+C:\Users\danie\Documents\GitHub\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos.DataAccess\bin\Debug\netcoreapp3.1\SalonDeBellezaCarlitos.DataAccess.deps.json
+C:\Users\danie\Documents\GitHub\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos.DataAccess\bin\Debug\netcoreapp3.1\SalonDeBellezaCarlitos.DataAccess.dll
+C:\Users\danie\Documents\GitHub\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos.DataAccess\bin\Debug\netcoreapp3.1\SalonDeBellezaCarlitos.DataAccess.pdb
+C:\Users\danie\Documents\GitHub\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos.DataAccess\bin\Debug\netcoreapp3.1\SalonDeBellezaCarlitos.Entities.dll
+C:\Users\danie\Documents\GitHub\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos.DataAccess\bin\Debug\netcoreapp3.1\SalonDeBellezaCarlitos.Entities.pdb
+C:\Users\danie\Documents\GitHub\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos.DataAccess\obj\Debug\netcoreapp3.1\SalonDeBellezaCarlitos.DataAccess.csproj.AssemblyReference.cache
+C:\Users\danie\Documents\GitHub\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos.DataAccess\obj\Debug\netcoreapp3.1\SalonDeBellezaCarlitos.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\danie\Documents\GitHub\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos.DataAccess\obj\Debug\netcoreapp3.1\SalonDeBellezaCarlitos.DataAccess.AssemblyInfoInputs.cache
+C:\Users\danie\Documents\GitHub\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos.DataAccess\obj\Debug\netcoreapp3.1\SalonDeBellezaCarlitos.DataAccess.AssemblyInfo.cs
+C:\Users\danie\Documents\GitHub\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos.DataAccess\obj\Debug\netcoreapp3.1\SalonDeBellezaCarlitos.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\danie\Documents\GitHub\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos.DataAccess\obj\Debug\netcoreapp3.1\SalonDeBellezaCarlitos.DataAccess.csproj.CopyComplete
+C:\Users\danie\Documents\GitHub\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos.DataAccess\obj\Debug\netcoreapp3.1\SalonDeBellezaCarlitos.DataAccess.dll
+C:\Users\danie\Documents\GitHub\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos.DataAccess\obj\Debug\netcoreapp3.1\SalonDeBellezaCarlitos.DataAccess.pdb
