@@ -26,12 +26,8 @@ namespace SalonDeBellezaCarlitos.DataAccess.Repository
 
         public int Insert(tbCargos item)
         {
-            //using var db = new SalonCarlitosContext();
-            //db.tbCargos.Add(item);
-            //return item.carg_Id;
 
             using var db = new SqlConnection(SalonCarlitosContext.ConnectionString);
-
             var parametros = new DynamicParameters();
 
             parametros.Add("@carg_Descripcion", item.carg_Descripcion, DbType.String, ParameterDirection.Input);
@@ -45,7 +41,6 @@ namespace SalonDeBellezaCarlitos.DataAccess.Repository
         public IEnumerable<tbCargos> List()
         {
             using var db = new SqlConnection(SalonCarlitosContext.ConnectionString);
-
             return db.Query<tbCargos>(ScriptsDataBase.UDP_Listado_Cargos, null, commandType: CommandType.StoredProcedure);
 
         }

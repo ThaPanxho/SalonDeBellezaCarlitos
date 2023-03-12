@@ -18,6 +18,12 @@ namespace SalonDeBellezaCarlitos.BusinessLogic
             service.AddScoped<EmpleadoRepository>();
             service.AddScoped<UsuarioRepository>();
             service.AddScoped<ServicioRepository>();
+            service.AddScoped<CategoriaRepository>();
+            service.AddScoped<DepartametoRepository>();
+            service.AddScoped<MunicipioRepository>();
+            service.AddScoped<ClienteRepository>();
+            service.AddScoped<EstadoCivilRepository>();
+
 
             SalonCarlitosContext.BuildConnectionString(connectionString);
 

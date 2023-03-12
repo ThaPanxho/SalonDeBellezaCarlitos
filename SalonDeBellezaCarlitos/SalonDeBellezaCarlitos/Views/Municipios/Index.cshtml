@@ -1,0 +1,56 @@
+﻿@model IEnumerable<SalonDeBellezaCarlitos.WebUI.Models.MunicipioViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+
+<table class="table compact">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.muni_Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.muni_Codigo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.muni_FechaCreacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.muni_FechaModificacion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.muni_Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.muni_Codigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.muni_FechaCreacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.muni_FechaModificacion)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.muni_Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.muni_Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.muni_Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

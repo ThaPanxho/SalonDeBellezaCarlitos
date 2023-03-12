@@ -65,6 +65,8 @@ namespace SalonDeBellezaCarlitos.WebUI.Controllers
             if (result == 0)
             {
                 ModelState.AddModelError("", "Ocurrió un error al Crear este registro");
+                var CargosList = _generalesService.ListadoCargos(out string error).ToList();
+                ViewBag.carg_Id = new SelectList(CargosList, "carg_Id", "carg_Descripcion");
                 return View();
             }
             return RedirectToAction("Listado");

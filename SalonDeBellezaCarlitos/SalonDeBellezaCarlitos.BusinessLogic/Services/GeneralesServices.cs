@@ -13,17 +13,32 @@ namespace SalonDeBellezaCarlitos.BusinessLogic.Services
         private readonly EmpleadoRepository _EmpleadoRepository;
         private readonly UsuarioRepository _UsuariosRepository;
         private readonly ServicioRepository _ServicioRepository;
+        private readonly CategoriaRepository _CategoriaRepository;
+        private readonly DepartametoRepository _DepartamentosRepository; 
+        private readonly MunicipioRepository _MunicipiosRepository;
+        private readonly ClienteRepository _ClientesRepository;
+        private readonly EstadoCivilRepository _EstadosCivilesRepository; 
 
         public GeneralesServices(   CargoRepository CargoRepository, 
                                     EmpleadoRepository EmpleadoRepository, 
                                     UsuarioRepository usuarioRepository,
-                                    ServicioRepository servicioRepository
+                                    ServicioRepository servicioRepository,
+                                    CategoriaRepository categoriaRepository,
+                                    DepartametoRepository departametoRepository,
+                                    MunicipioRepository municipioRepository,
+                                    ClienteRepository clienteRepository,
+                                    EstadoCivilRepository estadoCivilRepository
             ) 
         {
             _CargoRepository = CargoRepository;
             _EmpleadoRepository = EmpleadoRepository;
             _UsuariosRepository = usuarioRepository;
             _ServicioRepository = servicioRepository;
+            _CategoriaRepository = categoriaRepository;
+            _DepartamentosRepository = departametoRepository;
+            _MunicipiosRepository = municipioRepository;
+            _ClientesRepository = clienteRepository;
+            _EstadosCivilesRepository = estadoCivilRepository;
         }
 
         #region Cargos
@@ -134,5 +149,95 @@ namespace SalonDeBellezaCarlitos.BusinessLogic.Services
 
         #endregion
 
+        #region Categorias
+
+        public IEnumerable<tbCategorias> ListadoCategorias(out string error)
+        {
+            error = string.Empty;
+            try
+            {
+                return _CategoriaRepository.List();
+            }
+            catch (Exception e)
+            {
+                error = e.Message;
+                return Enumerable.Empty<tbCategorias>();
+            }
+        }
+
+        #endregion
+
+        #region Departamentos
+
+        public IEnumerable<tbDepartamentos> ListadoDepartamentos(out string error)
+        {
+            error = string.Empty;
+            try
+            {
+                return _DepartamentosRepository.List();
+            }
+            catch (Exception e)
+            {
+                error = e.Message;
+                return Enumerable.Empty<tbDepartamentos>();
+            }
+        }
+
+        #endregion
+
+        #region Municipios
+
+        public IEnumerable<tbMunicipios> ListadoMunicipios(out string error)
+        {
+            error = string.Empty;
+            try
+            {
+                return _MunicipiosRepository.List();
+            }
+            catch (Exception e)
+            {
+                error = e.Message;
+                return Enumerable.Empty<tbMunicipios>();
+            }
+        }
+
+        #endregion
+
+
+        #region clientes
+        
+        public IEnumerable<tbClientes> ListadoClientes(out string error)
+        {
+            error = string.Empty;
+            try
+            {
+                return _ClientesRepository.List();
+            }
+            catch (Exception e)
+            {
+                error = e.Message;
+                return Enumerable.Empty<tbClientes>();
+            }
+        }
+
+        #endregion
+
+        #region Estados Civiles
+
+        public IEnumerable<tbEstadosCiviles> ListadoEstadosCiviles(out string error)
+        {
+            error = string.Empty;
+            try
+            {
+                return _EstadosCivilesRepository.List();
+            }
+            catch (Exception e)
+            {
+                error = e.Message;
+                return Enumerable.Empty<tbEstadosCiviles>();
+            }
+        }
+
+        #endregion
     }
 }

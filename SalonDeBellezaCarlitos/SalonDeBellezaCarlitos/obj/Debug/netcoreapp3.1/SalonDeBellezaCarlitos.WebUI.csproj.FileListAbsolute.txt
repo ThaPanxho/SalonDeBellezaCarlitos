@@ -370,3 +370,8 @@ C:\Users\danie\Documents\GitHub\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos\Sa
 C:\Users\danie\Documents\GitHub\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos\obj\Debug\netcoreapp3.1\Razor\Views\Empleados\Index.cshtml.g.cs
 C:\Users\danie\Documents\GitHub\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\Index.cshtml.g.cs
 C:\Users\danie\Documents\GitHub\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos\obj\Debug\netcoreapp3.1\Razor\Views\Servicio\Index.cshtml.g.cs
+C:\Users\danie\Documents\GitHub\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos\obj\Debug\netcoreapp3.1\Razor\Views\Categorias\Index.cshtml.g.cs
+C:\Users\danie\Documents\GitHub\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos\obj\Debug\netcoreapp3.1\Razor\Views\Departamentos\Index.cshtml.g.cs
+C:\Users\danie\Documents\GitHub\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos\obj\Debug\netcoreapp3.1\Razor\Views\Municipios\Index.cshtml.g.cs
+C:\Users\danie\Documents\GitHub\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos\obj\Debug\netcoreapp3.1\Razor\Views\Clientes\Index.cshtml.g.cs
+C:\Users\danie\Documents\GitHub\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos\SalonDeBellezaCarlitos\obj\Debug\netcoreapp3.1\Razor\Views\EstadosCiviles\Index.cshtml.g.cs

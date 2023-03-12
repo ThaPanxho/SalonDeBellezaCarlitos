@@ -63,7 +63,13 @@
             </div>
             <div class="form-group">
                 <label asp-for="carg_Id" class="control-label"></label>
-                @Html.DropDownList("carg_Id", null, htmlAttributes: new { @class = "form-control" })
+                @*<input asp-for="carg_Id" class="form-control" />*@
+                @*@Html.DropDownList("carg_Id", null, htmlAttributes: new { @class = "form-control" })*@
+                <select asp-for="carg_Id" class="form-control" asp-items="ViewBag.carg_Id">
+                    <option value="">-- Sellecione un cargo --</option>
+                </select>
+                <span asp-validation-for="carg_Id" class="text-danger" />
+
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
