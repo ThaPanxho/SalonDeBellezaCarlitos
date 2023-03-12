@@ -34,7 +34,7 @@ namespace SalonDeBellezaCarlitos.DataAccess.Repository
         public IEnumerable<tbCategorias> List()
         {
             using var db = new SqlConnection(SalonCarlitosContext.ConnectionString);
-            return db.Query<tbCategorias>(ScriptsDataBase.UDP_Listado_Servicios, null, commandType: CommandType.StoredProcedure);
+            return db.Query<tbCategorias>(ScriptsDataBase.UDP_Listado_Categorias, null, commandType: CommandType.StoredProcedure);
         }
 
         public int Update(tbCategorias item)
